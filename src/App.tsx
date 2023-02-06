@@ -7,7 +7,7 @@ function App() {
 
   return (
     <div className="App">
-      <img src="/vite-deno.svg" alt="Vite with Deno" />
+      {/* <img src="/vite-deno.svg" alt="Vite with Deno" />
       <div>
         <a href="https://vitejs.dev" target="_blank">
           <img src="/vite.svg" className="logo" alt="Vite logo" />
@@ -15,7 +15,7 @@ function App() {
         <a href="https://reactjs.org" target="_blank">
           <img src="/react.svg" className="logo react" alt="React logo" />
         </a>
-      </div>
+      </div> */}
       <h1 className = "header">
         <span className="clip">
           weeeeebsite
@@ -29,9 +29,9 @@ function App() {
           count is {count}
         </button>
       </div>
-      <p className="read-the-docs">
+      {/* <p className="read-the-docs">
         Click on the Vite and React logos to learn more
-      </p>
+      </p> */}
     </div>
   )
 }
