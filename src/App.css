@@ -56,3 +56,9 @@
 .header{
   font-family: "Rubik";
 }
+
+.wanderer{
+  width: 50%;
+  outline: 4px auto -webkit-focus-ring-color;
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
