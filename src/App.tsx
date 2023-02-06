@@ -17,10 +17,13 @@ function App() {
         </a>
       </div>
       <h1 className = "header">
-        <span class="clip">
+        <span className="clip">
           weeeeebsite
         </span>
       </h1>
+      <div>
+        <img src="/Wanderer.jpeg" className = "wanderer"/>
+      </div>
       <div className="card">
         <button onClick={() => setCount((count) => count + 1)}>
           count is {count}
