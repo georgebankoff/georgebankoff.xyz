@@ -48,10 +48,13 @@ button {
   transition: border-color 0.25s;
 }
 button:hover {
-  border-color: #646cff;
+  filter: drop-shadow(0 0 1.5em #646cffaa);
 }
 button:focus,
 button:focus-visible {
+  /* outline: 4px auto -webkit-focus-ring-color; */
+}
+button:active {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
