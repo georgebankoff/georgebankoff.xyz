@@ -1,0 +1,11 @@
+{
+  "imports": {
+    "react": "https://esm.sh/v106/*react@18.2.0",
+    "react/": "https://esm.sh/v106/*react@18.2.0/"
+  },
+  "scopes": {
+    "https://esm.sh/v106/": {
+      "loose-envify": "https://esm.sh/v106/loose-envify@1.4.0"
+    }
+  }
+}
