@@ -48,9 +48,13 @@
 }
 
 .clip {
-  background: var(--vp-home-hero-name-background);
+  background-image: linear-gradient(0deg, #f35626, #feab3a);
+  background-size: 200% auto;
+  text-fill-color: transparent;
   -webkit-background-clip: text;
   -webkit-text-fill-color: var(--vp-home-hero-name-color);
+  
+  animation: shine 1s linear infinite;
 }
 
 .header{
