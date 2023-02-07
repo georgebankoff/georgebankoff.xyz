@@ -22,7 +22,7 @@ function App() {
         </span>
       </h1>
       <div>
-        <img src="/Wanderer.jpeg" className = "wanderer"/>
+        <img src="/Wanderer.webp" className = "wanderer"/>
       </div>
       <div className="card">
         <button onClick={() => setCount((count) => count + 1)}>
