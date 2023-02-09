@@ -4,8 +4,9 @@ import {
   Route,
   Routes,
 } from 'react-router-dom';
-import { NavBar } from "./components/NavBar.tsx";
-import { HomePage } from "./pages/HomePage.tsx";
+import { NavBar } from "./components/NavBar";
+import { HomePage } from "./pages/HomePage";
+import './App.css'
 
 export default function App(props) {
   return (
