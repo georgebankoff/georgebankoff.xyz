@@ -1,11 +1,14 @@
 {
   "imports": {
+    "react-router-dom": "https://esm.sh/v106/*react-router-dom@6.8.1",
     "react": "https://esm.sh/v106/*react@18.2.0",
     "react/": "https://esm.sh/v106/*react@18.2.0/"
   },
   "scopes": {
     "https://esm.sh/v106/": {
-      "loose-envify": "https://esm.sh/v106/loose-envify@1.4.0"
+      "@remix-run/router": "https://esm.sh/v106/@remix-run/router@1.3.2",
+      "loose-envify": "https://esm.sh/v106/loose-envify@1.4.0",
+      "react-router": "https://esm.sh/v106/react-router@6.8.1"
     }
   }
 }
