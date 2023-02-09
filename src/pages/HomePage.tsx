@@ -1,5 +1,5 @@
-import * as React from "https://esm.sh/react@18.2.0";
-import { useState } from 'https://esm.sh/react@18.2.0'
+import React from 'react';
+import { useState } from 'react'
 import '../App.css'
 
 export function HomePage() {
