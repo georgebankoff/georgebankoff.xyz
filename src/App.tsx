@@ -3,7 +3,7 @@ import {
   Navigate,
   Route,
   Routes,
-} from "https://esm.sh/react-router-dom@6.8.1?deps=react@18.2.0";
+} from 'react-router-dom';
 import { NavBar } from "./components/NavBar.tsx";
 import { HomePage } from "./pages/HomePage.tsx";
 
