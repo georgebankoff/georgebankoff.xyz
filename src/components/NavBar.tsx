@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Link } from "https://esm.sh/react-router-dom@6.8.1?deps=react@18";
+import { Link } from 'react-router-dom'
 
 export function NavBar() {
   return (
