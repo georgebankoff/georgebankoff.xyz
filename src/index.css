@@ -76,3 +76,22 @@ button:active {
     background-color: #f9f9f9;
   }
 }
+
+.clip {
+  background-image: linear-gradient(0deg, #f35626, #feab3a);
+  background-size: 200% auto;
+  text-fill-color: transparent;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: var(--vp-home-hero-name-color);
+  
+  animation: shine 1s linear infinite;
+}
+
+.card {
+  padding: 2em;
+}
+
+.header{
+  font-family: "Crimson Pro";
+  font-weight: bold;
+}

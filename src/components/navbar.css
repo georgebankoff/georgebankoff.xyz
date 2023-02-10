@@ -1,0 +1,22 @@
+.navbar{
+    /* background-color: #2b2b2b; */
+    color: #fff;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* box-shadow: 0 0 30px #2b55dfaa; */
+    /* border: 2px solid #0c0c0caa; */
+    background-color: #1a1a1a;
+
+    border-radius: 10px;
+    width: 90px;
+    height: 15px;
+}
+
+.centered{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 0;
+}
