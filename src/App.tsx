@@ -13,11 +13,11 @@ import { BlogPage } from "./pages/Blog.tsx";
 export default function App(props) {
   return (
     <div>
-      <NavBar />
+      <NavBar/>
       <Routes>
         <Route exact path="/" element={<HomePage />} />
-        <Route exact path="/blog" element={<BlogPage />} />
-        <Route path="*" element={<Navigate to="/" />} />
+        <Route exact path="/blog" element={<BlogPage/>} />
+        {/* <Route path="*" element={<Navigate to="/" />} /> */}
       </Routes>
     </div>
   );
