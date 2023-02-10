@@ -8,6 +8,7 @@ import { NavBar } from "./components/NavBar";
 import { HomePage } from "./pages/HomePage";
 import './App.css'
 
+
 export default function App(props) {
   return (
     <div>
