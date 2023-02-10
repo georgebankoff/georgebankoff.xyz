@@ -1,15 +1,15 @@
 .paragraph{
     text-align: left;
-    margin-left: 10%;
-    margin-right: 57%;
+    white-space: pre-wrap;
+    margin: 0;
+    padding: 0;
+    text-indent: 0;
     align-content: center;
     font-family: 'Crimson Pro';
     font-size: 25;
     color: grue;
-    /* border: 1px solid grue; */
     border: 2px dashed #646cffaa;
-    border-radius: 5px;
-    padding: 10px;
+    border-radius: 10px;
     
     
     
