@@ -5,7 +5,6 @@ export function NavBar() {
   return (
     <ul>
       <Link to="/">Home</Link> | <Link to="/blog">Blog</Link> |{" "}
-      <Link to="/users/lambtron">Dynamic Routes</Link>
     </ul>
   );
 }
