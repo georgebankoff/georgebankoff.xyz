@@ -1,3 +1,4 @@
+// @deno-types="react"
 import React from 'react';
 import './blog.css'
 
@@ -32,6 +33,12 @@ export function BlogPage() {
         Slouches towards Bethlehem to be born?
         `}
       </p>
+      <button className='cool-purple-button'>
+        purple
+      </button>
+      <div className = 'glow'>
+
+      </div>
     </div>
   );
 }
