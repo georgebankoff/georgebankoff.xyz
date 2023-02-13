@@ -1,3 +1,5 @@
+// @deno-types="npm:@types/react"
+// @deno-types="npm:@types/react-router-dom"
 import React from 'react';
 import {
   Navigate,

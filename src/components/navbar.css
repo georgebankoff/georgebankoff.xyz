@@ -12,6 +12,8 @@
     border-radius: 10px;
     width: 90px;
     height: 15px;
+    transition: border-color 0.25s;
+
 }
 
 .centered{
