@@ -13,12 +13,17 @@
     width: 90px;
     height: 15px;
     transition: border-color 0.25s;
+    user-select: none;
+}
 
+@media (prefers-color-theme: dark){
+    .navbar{
+        background-color: white;
+    }
 }
 
 .centered{
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 0;
 }

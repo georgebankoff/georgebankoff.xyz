@@ -4,6 +4,11 @@
   padding: 2rem;
   text-align: center;
 }
+.navbar{
+  position: absolute;
+  top: 0;
+
+}
 
 
 
