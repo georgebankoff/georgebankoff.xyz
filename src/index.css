@@ -48,6 +48,7 @@ button {
   background-color: #1a1a1a;
   cursor: pointer;
   transition: border-color 0.25s;
+  user-select: none;
 }
 button:hover {
   /* filter: drop-shadow(0 0 .5em #6488ffaa); */
@@ -96,4 +97,15 @@ button:active {
 .header{
   font-family: "Crimson Pro";
   font-weight: bold;
+}
+
+/*change color of text highlight*/
+::-moz-selection {
+  color: #ebf8f1;
+  background: #2c38ba;
+}
+
+::selection {
+  color: #ebf8f1;
+  background: #245abe;
 }

@@ -34,8 +34,13 @@ export function BlogPage() {
         `}
       </p>
       <button className='cool-purple-button'>
-        purple
+        purplex
       </button>
+
+      <h1 className = 'purple'>
+        x
+      </h1>
+
       <div className = 'glow'>
 
       </div>
