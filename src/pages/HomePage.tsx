@@ -24,6 +24,7 @@ export function HomePage() {
         <div>
           <img src="/Wanderer.webp" className = "wanderer"/>
         </div>
+  {/* how to make this count global for every user?? */}
         <div className="card">
           <button onClick={() => setCount((count) => count + 1)}>
             count is {count}
