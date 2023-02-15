@@ -17,8 +17,8 @@ export default function App(props) {
     <div>
       <NavBar className = 'navbar'/>
       <Routes>
-        <Route exact path="/" element={<HomePage />} />
-        <Route exact path="/blog" element={<BlogPage/>} />
+        <Route path="/" element={<HomePage />} />
+        <Route path="/blog" element={<BlogPage/>} />
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
     </div>

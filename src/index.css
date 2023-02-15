@@ -49,6 +49,8 @@ button {
   cursor: pointer;
   transition: border-color 0.25s;
   user-select: none;
+  -webkit-user-select: none;
+
 }
 button:hover {
   /* filter: drop-shadow(0 0 .5em #6488ffaa); */
