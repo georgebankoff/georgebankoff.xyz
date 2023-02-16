@@ -4,7 +4,7 @@ import './blog.css'
 
 export function BlogPage() {
   return (
-    <div>
+    <>
       <h1>weblog</h1>
       <p className = 'paragraph'>
         {`
@@ -44,6 +44,6 @@ export function BlogPage() {
       <div className = 'glow'>
 
       </div>
-    </div>
+    </>
   );
 }
