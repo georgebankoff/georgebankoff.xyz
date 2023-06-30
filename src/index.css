@@ -105,13 +105,13 @@ button:active {
   font-weight: bold;
 }
 
-/*change color of text highlight*/
+/*change color of text */
 ::-moz-selection {
-  color: #ebf8f1;
+  color: white;
   background: #2c38ba;
 }
 
 ::selection {
-  color: #ebf8f1;
+  color: white;
   background: #245abe;
 }

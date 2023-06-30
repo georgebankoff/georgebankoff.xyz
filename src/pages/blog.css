@@ -41,7 +41,7 @@
 .cool-purple-button:active {
     transition: 0s;
     transform: scale(1.25);
-    box-shadow: 0px 0px 30px 5px rgba(69, 40, 217, 0.5);
+    box-shadow: 0px 0px 30px 5px #2b34d4;
 }
 .glow{
   filter: drop-shadow(0 0 .5em #16cf70aa);
