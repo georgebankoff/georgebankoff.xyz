@@ -13,7 +13,8 @@ export function NavBar() {
   return (
     <div className='centered'>
     <ul className = 'navbar'>
-      <Link to="/">Home</Link><Link to="/blog">Blog</Link>
+      <Link to='/'>Home</Link>
+      <Link to='/blog' className = {window.location.pathname==='/blog' ? 'active' : 'sho'}>Blog</Link>
     </ul>
     </div>
   );

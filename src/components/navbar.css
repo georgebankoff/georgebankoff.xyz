@@ -7,7 +7,7 @@
     align-items: center;
     /* box-shadow: 0 0 30px #2b55dfaa; */
     /* border: 2px solid #0c0c0caa; */
-    background-color: #1a1a1a;
+    /* background-color: #1a1a1a; */
 
     border-radius: 10px;
     width: 90px;
@@ -20,6 +20,7 @@
 @media (prefers-color-theme: dark){
     .navbar{
         background-color: white;
+        color:white;
     }
 }
 
@@ -27,4 +28,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.sho {
+    color:blue;
+    background-color: blue;
 }

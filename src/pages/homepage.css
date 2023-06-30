@@ -1,7 +1,8 @@
 .wanderer{
     width: 50%;
     height: 50%;
-    outline: 4px auto #686868;
+    outline: #686868 auto 4px;
+    outline-color: #686868;
     filter: drop-shadow(0 0 1em #090909aa);
     border-radius: 8px;
     user-select: none;
