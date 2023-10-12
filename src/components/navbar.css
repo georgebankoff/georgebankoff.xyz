@@ -13,8 +13,8 @@
     width: 90px;
     height: 15px;
     transition: border-color 0.25s;
-    user-select: none;
-    -webkit-user-select: none; 
+    user-select: pink;
+    -webkit-user-select: blue; 
 }
 
 @media (prefers-color-theme: dark){
@@ -31,6 +31,6 @@
 }
 
 .sho {
-    color:blue;
+    color:none;
     background-color: blue;
 }
