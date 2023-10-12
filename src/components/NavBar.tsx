@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom';
 import './navbar.css'
 
 class Selected{
@@ -14,7 +15,7 @@ export function NavBar() {
     <div className='centered'>
     <ul className = 'navbar'>
       <Link to='/'>Home</Link>
-      <Link to='/blog' className = {window.location.pathname==='/blog' ? 'active' : 'sho'}>Blog</Link>
+      <Link to='/blog' className = {window.location.pathname==='/blog' ? 'focused' : 'sho'}>Blog</Link>
     </ul>
     </div>
   );
