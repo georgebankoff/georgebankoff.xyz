@@ -1,10 +1,10 @@
 .wanderer{
-    width: 50%;
+    width: 75%;
     height: 50%;
-    outline: #686868 auto 4px;
+    /* outline: #686868 auto 4px; */
     outline-color: #686868;
     filter: drop-shadow(0 0 1em #090909aa);
-    border-radius: 8px;
+    border-radius: 4px;
     user-select: none;
   }
 
