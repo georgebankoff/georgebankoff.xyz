@@ -18,18 +18,21 @@ export function HomePage() {
         </div> */}
         <h1 className = "header">
           <span className="clip">
-            weeeeebsite
+            George Bankoff
           </span>
         </h1>
         <div>
-          <img src="/Wanderer.webp" className = "wanderer"/>
+          {/* <img src="/Wanderer.webp" className = "wanderer"/> */}
+          <img src="/dipper-trail.webp" className='wanderer'></img>
+          <img src="/moon.JPG" className='wanderer'></img>
+          <img src="/moon-trail.jpg" className='wanderer'></img>
         </div>
   {/* how to make this count global for every user?? */}
-        <div className="card">
+       {/*  <div className="card">
           <button onClick={() => setCount((count) => count + 1)}>
             count is {count}
           </button>
-        </div>
+        </div> */}
         {/* <p className="read-the-docs">
           Click on the Vite and React logos to learn more
         </p> */}

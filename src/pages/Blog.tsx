@@ -6,6 +6,12 @@ export function BlogPage() {
   return (
     <>
       <h1>weblog</h1>
+      <p className='title'>
+        {
+        `This is where I will post writing I want to share.
+        For now, here is a poem by William Butler Yeats:`
+        }
+      </p>
       <p className = 'paragraph'>
         {`
         Turning and turning in the widening gyre
@@ -33,12 +39,9 @@ export function BlogPage() {
         Slouches towards Bethlehem to be born?
         `}
       </p>
-      <button className='cool-purple-button'>
-        purplex
-      </button>
 
       <h1 className = 'purple'>
-        x
+        gb
       </h1>
 
       <div className = 'glow'>
