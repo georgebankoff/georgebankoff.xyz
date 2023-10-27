@@ -15,7 +15,7 @@ $ deno task dev
 Build production assets:
 
 ```
-$ deno task build
+$ deno task dev
 ```
 
 ## Notes

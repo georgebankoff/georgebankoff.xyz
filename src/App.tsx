@@ -1,6 +1,6 @@
-import React from 'react';
-import { useState } from 'react'
-import './App.css';
+import React from "react";
+import { useState } from "react";
+import "./App.css";
 
 export function HomePage() {
 
@@ -36,7 +36,8 @@ export function HomePage() {
             </p> 
 
       </div>
-    )
+    </div>
+  );
 }
 
-export default HomePage
+export default HomePage;
