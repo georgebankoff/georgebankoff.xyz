@@ -4,9 +4,9 @@
   padding: 2rem;
   text-align: center;
 }
-.wanderer{
+.image{
     object-fit: contain;
-    width: 75%;
+    width: 953px;
     /* outline: #686868 auto 4px; */
     outline-color: #686868;
     /* filter: drop-shadow(0 0 1em #8d8d8daa); */
@@ -49,7 +49,3 @@
     font-weight: bold;
     animation: animate-gradient 3s ease infinite;
   }  
-  .spaced {
-    flex: 1;
-    padding:5px;
-  }
