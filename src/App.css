@@ -5,7 +5,11 @@
   text-align: center;
 }
 .intro {
-  max-width: 120%;
+  max-width: 35rem;
+  text-align: justify;
+  background-color: #eeeeee;
+  border-radius: 10px;
+  padding: .5rem;
 }
 .image {
   object-fit: contain;
