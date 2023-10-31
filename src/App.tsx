@@ -19,18 +19,20 @@ import "./App.css";
 export function HomePage() {
   return (
     <div className="App">
-      <h1 className="header">
-        <span className="clip">George Bankoff</span>
-      </h1>
-      <p className="intro">
-      I made this website using React to post photos that I took as part of an Astrophotography workshop in Maine, which was led by Babak Tafreshi, one of the leading night sky photographers. I took all of these images myself using a Canon Rebel T7 and a Canon EOS 5D Mark III, with a fisheye lens and a 16-35mm telescope lens that I borrowed from my friend (Alfonso.)
-      </p>
       <div className="spaced">
+        <h1 className="header">
+          <span className="clip">George Bankoff</span>
+        </h1>
+        <div>
+          <p className="intro">
+          I made this website using React to post photos that I took as part of an Astrophotography workshop in Maine, which was led by Babak Tafreshi, one of the leading night sky photographers. I took all of these images myself using a Canon Rebel T7 and a Canon EOS 5D Mark III, with a fisheye lens and a 16-35mm telescope lens that I borrowed from my friend (Alfonso.)
+          </p>
+        </div>
         <div>
           <img src="/dipper-trail.webp" className="image"></img>
           <p className="description">
           This is a composite star trail photo of the sky. You can see Ursa Major (the Big Dipper) in the center at the bottom of the sky, and the stars rotating around Polaris in the upper right. To create this effect, I converted all of my raw photos into TIFFs, and then stacked them using a computer program called StarStax. I then removed satellite streaks from the image using Photoshop.
-          </p>{" "}
+          </p>
         </div>
         <div>
           <img src="/moon.webp" className="image"></img>
