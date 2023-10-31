@@ -4,6 +4,9 @@
   /* padding: 2rem; */
   text-align: center;
 }
+.intro {
+  max-width: 120%;
+}
 .image {
   object-fit: contain;
   /* outline: #686868 auto 4px; */

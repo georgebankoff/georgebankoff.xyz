@@ -22,7 +22,7 @@ export function HomePage() {
       <h1 className="header">
         <span className="clip">George Bankoff</span>
       </h1>
-      <p>
+      <p className="intro">
       I made this website using React to post photos that I took as part of an Astrophotography workshop in Maine, which was led by Babak Tafreshi, one of the leading night sky photographers. I took all of these images myself using a Canon Rebel T7 and a Canon EOS 5D Mark III, with a fisheye lens and a 16-35mm telescope lens that I borrowed from my friend (Alfonso.)
       </p>
       <div className="spaced">
