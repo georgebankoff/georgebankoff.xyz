@@ -26,25 +26,20 @@ body {
 
 h1 {
   font-size: 3.2em;
-  line-height: 1.1;
-  font-family: 'SF Pro'
+  line-height: 0;
+  font-family: "Rubik";
+  padding-bottom: 1rem;
+}
+h2 {
+  font-size: 1.8em;
+  font-family: 'Rubik';
+  font-weight:400;
+  padding-bottom: .5rem;
+  line-height: 0;
 }
 p {
   font-family: 'Rubik';
   font-size: 1.1em;
-}
-.clip {
-  background-image: linear-gradient(0deg, #0e0e0e, #1b1b1b);
-  background-size: 200% auto;
-  text-fill-color: transparent;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: var(--vp-home-hero-name-color);
-  animation: shine 1s linear infinite;
-}
-
-.header{
-  font-family: "SF Pro";
-  font-weight: 500;
 }
 
 /*change color of text */
