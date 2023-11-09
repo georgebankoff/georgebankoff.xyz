@@ -26,9 +26,12 @@ body {
 
 h1 {
   font-size: 3.2em;
-  line-height: 0;
+  line-height: 1em;
   font-family: "Rubik";
   padding-bottom: 1rem;
+  text-wrap: wrap;
+  padding-left: 5%;
+  padding-right: 5%;
 }
 h2 {
   font-size: 1.8em;

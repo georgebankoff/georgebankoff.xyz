@@ -10,6 +10,8 @@
   /* outline: .2rem solid #d7d7d7; */
   /* border-radius: 10px; */
   padding: .3rem;
+  padding-left: 5%;
+  padding-right: 5%;
 }
 .intro-block {
   display: flex;
@@ -37,8 +39,10 @@
 .fill {
   display:flex;
   flex-direction: column;
-  max-width: 55%;
+  max-width: 620px;
   margin: 0 auto;
+  padding-left: 5%;
+  padding-right: 5%;
   justify-content: center;
 }
 .fill-description {
@@ -96,4 +100,12 @@
   padding-top: 2rem;
   padding-bottom: 2rem;
   padding-right: 5rem;
+}
+@media screen and (max-width: 580px) {
+  .portrait{
+    display: none;
+  }
+  .about-text {
+    padding-right: 10%;
+  }
 }
