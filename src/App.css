@@ -108,4 +108,7 @@
   .about-text {
     padding-right: 10%;
   }
+  .header {
+    font-size: 2.25rem;
+  }
 }
