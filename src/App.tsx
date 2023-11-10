@@ -27,7 +27,7 @@ export function HomePage() {
       </h2>
       <div className="intro-block">
         <p className="intro">
-        I made this website using React to post photos that I took as part of an Astrophotography workshop in Maine, which was led by Babak Tafreshi, one of the leading night sky photographers. I took all of these images myself using a Canon Rebel T7 and a Canon EOS 5D Mark III, with a fisheye lens and a 16-35mm telescope lens that I borrowed from my friend (Alfonso).
+        These are photos that I took as part of an Astrophotography workshop in Maine in the summer of 2023. The program was led by Babak Tafreshi, one of the leading night sky photographers. I took and processed all of these images myself using a Canon Rebel T7 and a Canon EOS 5D Mark III, with a fisheye lens and a 16-35mm telescope lens that I borrowed from my friend (Alfonso). I programmed this website using React. 
         </p>
       </div>
       <div className="fill">
