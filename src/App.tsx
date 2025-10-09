@@ -1,4 +1,5 @@
 import React from "react";
+import { createRoot } from "react-dom/client";
 // import Image from "https://esm.sh/react-image-enlarger";
 import "./App.css";
 
