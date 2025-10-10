@@ -5,19 +5,22 @@ serve(async (req) => {
   console.log(`Request: ${req.method} ${req.url}`);
 
   try {
-    // Check if dist directory exists
-    const distInfo = await Deno.stat("dist").catch(() => null);
-    if (!distInfo) {
-      console.error("dist directory not found!");
-      return new Response("Build files not found", { status: 500 });
-    }
-
     const response = await serveDir(req, {
       fsRoot: "dist",
-      showDirListing: true,
+      urlRoot: "",
     });
 
-    console.log(`Response status: ${response.status}`);
+    if (response.status === 404) {
+      console.log(`Got 404, serving index.html instead.`);
+      const index = await Deno.readFile("./dist/index.html");
+      return new Response(index, {
+        status: 200,
+        headers: {
+          "content-type": "text/html",
+        },
+      });
+    }
+
     return response;
   } catch (error) {
     console.error("Error serving request:", error);
