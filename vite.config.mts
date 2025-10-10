@@ -7,6 +7,5 @@ import "npm:react-router-dom";
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  root: "src",
   plugins: [react()],
 });
