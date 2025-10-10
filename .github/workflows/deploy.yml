@@ -32,3 +32,4 @@ jobs:
         with:
           project: georgebankoff-xyz
           root: dist
+          entrypoint: dist/main.ts
