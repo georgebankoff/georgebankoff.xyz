@@ -1,114 +1,220 @@
 #root {
-  /* margin: 0 auto; */
-  text-align: center;
-  background-color: #202020;
+    /* margin: 0 auto; */
+    text-align: center;
+    background-color: #1a1a2e;
+    background-image:
+        radial-gradient(
+            circle at 20% 50%,
+            rgba(255, 255, 255, 0.1) 1px,
+            transparent 1px
+        ),
+        radial-gradient(
+            circle at 80% 80%,
+            rgba(255, 255, 255, 0.1) 1px,
+            transparent 1px
+        ),
+        radial-gradient(
+            circle at 40% 20%,
+            rgba(255, 255, 255, 0.15) 1px,
+            transparent 1px
+        ),
+        radial-gradient(
+            circle at 90% 30%,
+            rgba(255, 255, 255, 0.1) 1px,
+            transparent 1px
+        ),
+        radial-gradient(
+            circle at 10% 80%,
+            rgba(255, 255, 255, 0.1) 1px,
+            transparent 1px
+        ),
+        radial-gradient(
+            circle at 60% 70%,
+            rgba(255, 255, 255, 0.15) 1px,
+            transparent 1px
+        ),
+        radial-gradient(
+            circle at 30% 90%,
+            rgba(255, 255, 255, 0.1) 1px,
+            transparent 1px
+        ),
+        radial-gradient(
+            circle at 70% 10%,
+            rgba(255, 255, 255, 0.1) 1px,
+            transparent 1px
+        );
+    background-size: 200px 200px;
+    background-position:
+        0 0,
+        50px 50px,
+        100px 100px,
+        150px 150px,
+        25px 75px,
+        125px 25px,
+        75px 125px,
+        175px 75px;
 }
+
+h1.header {
+    font-family: "Geo", sans-serif;
+    font-size: 6.2rem;
+    margin-bottom: 0.5rem;
+}
+
+h2.header {
+    font-weight: bold;
+    margin-top: 0.5rem;
+    margin-bottom: 2rem;
+}
+
+.onshape-link {
+    color: #245abe;
+    text-decoration: none;
+    display: block;
+    text-align: center;
+    margin: 0 auto 1rem auto;
+    width: fit-content;
+    position: relative;
+    transition: transform 0.2s ease;
+}
+
+.onshape-link:hover {
+    transform: scale(1.05);
+    text-decoration: none;
+}
+
+.onshape-link:hover::after {
+    content: attr(title);
+    position: absolute;
+    bottom: -2.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 0.5rem 0.75rem;
+    border-radius: 4px;
+    white-space: nowrap;
+    font-size: 0.875rem;
+    font-weight: normal;
+    z-index: 1000;
+    pointer-events: none;
+}
+
+.onshape-icon {
+    height: 2.3rem;
+    width: auto;
+}
+
+a {
+    color: #245abe;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.divider {
+    width: 60%;
+    max-width: 600px;
+    height: 2px;
+    background: linear-gradient(to right, transparent, #666, transparent);
+    margin: 3rem auto;
+}
+
 .intro {
-  max-width: 35rem;
-  text-align: justify;
-  /* background-color: #f5f5f5; */
-  /* outline: .2rem solid #d7d7d7; */
-  /* border-radius: 10px; */
-  padding: .3rem;
-  padding-left: 5%;
-  padding-right: 5%;
+    max-width: 35rem;
+    text-align: justify;
+    /* background-color: #f5f5f5; */
+    /* outline: .2rem solid #d7d7d7; */
+    /* border-radius: 10px; */
+    padding: 0.3rem;
+    padding-left: 5%;
+    padding-right: 5%;
+    margin-bottom: 0.5rem;
 }
+
 .intro-block {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2rem;
 }
+
 .image {
-  user-select: none;
-  width: 100%;
-  object-fit: contain;
-  height: fit-content;
-  /* border-radius: 10px; */
+    user-select: none;
+    width: 100%;
+    object-fit: contain;
+    height: fit-content;
+    /* border-radius: 10px; */
 }
-.description{
-  /* width: 75%;
-  padding: 15px; */
-  text-align: justify;
-  max-width: 100%;
-  min-width: 90%;
-  align-self: top;
-  margin-right: auto;
-  margin-bottom: auto;
-  padding-bottom: 15px;
-}
+
 .fill {
-  display:flex;
-  flex-direction: column;
-  max-width: 620px;
-  margin: 0 auto;
-  padding-left: 5%;
-  padding-right: 5%;
-  justify-content: center;
+    display: flex;
+    flex-direction: column;
+    max-width: 620px;
+    margin: 0 auto;
+    padding-left: 5%;
+    padding-right: 5%;
+    justify-content: center;
 }
+
 .fill-description {
-  color: white;
-  /* padding: 1rem; */
-  text-align: justify;
-  margin-top: 1%;
-  margin-bottom: 4%;
-  /* width:50%;
+    color: white;
+    /* padding: 1rem; */
+    text-align: justify;
+    margin-top: 1%;
+    margin-bottom: 4%;
+    /* width:50%;
   margin-left:auto;
   margin-right: auto; */
 }
-.blocks {
-  display: flex;
-  flex-wrap: wrap;
-  margin: 0 auto;
-  flex: start;
-  width: 95%;
-  justify-content: center;
-}
-.blocks div {
-  display: flex;
-  flex-direction: column;
-  width: min(90%, 35rem);
-  flex-wrap: wrap;
-  padding: .5rem;
-  max-width: 48%;
-}
+
 .space {
-  margin: 0 auto;
-  width: 100%;
-  height: 2rem;
+    margin: 0 auto;
+    width: 100%;
+    height: 3rem;
 }
+
 .black {
-  background-color: black;
+    background-color: black;
 }
+
 .about {
-  display: flex;
-  flex-direction: row;
+    display: flex;
+    flex-direction: row;
 }
+
 .about-heading {
-  text-align: left;
-  color: white;
-  padding-left: 10%;
-  padding-top: 2%;
+    text-align: left;
+    color: white;
+    padding-left: 10%;
+    padding-top: 2%;
 }
+
 .about-text {
-  text-align: left;
-  padding-right: 36%;
-  color: white;
-  padding-left: 10%;
+    text-align: left;
+    padding-right: 36%;
+    color: white;
+    padding-left: 10%;
 }
-.portrait{
-  max-width: 30%;
-  padding-top: 2rem;
-  padding-bottom: 2rem;
-  padding-right: 5rem;
+
+.portrait {
+    max-width: 30%;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    padding-right: 5rem;
 }
+
 @media screen and (max-width: 580px) {
-  .portrait{
-    display: none;
-  }
-  .about-text {
-    padding-right: 10%;
-  }
-  .header {
-    font-size: 2.25rem;
-  }
+    .portrait {
+        display: none;
+    }
+    .about-text {
+        padding-right: 10%;
+    }
+    .header {
+        font-size: 2.25rem;
+    }
 }

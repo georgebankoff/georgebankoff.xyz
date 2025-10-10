@@ -19,8 +19,74 @@ import "./App.css";
 export function HomePage() {
   return (
     <div className="App">
-      <h1 className="header">Astrophotography Project</h1>
-      <h2>George Bankoff</h2>
+      <h1 className="header">George Bankoff</h1>
+      <div className="divider"></div>
+      <h2 className="header">Electric Go-Kart Project</h2>
+      <a
+        href="https://cad.onshape.com/documents/30826ce72678de87a3030163/w/d03a12ae59ca6e45fa57a4e4/e/b5c667bb1a43fcd1659505ac?renderMode=0&uiState=68e8585d196e8a6f1760b048"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="onshape-link"
+        title="View 3D CAD model on Onshape"
+      >
+        <img
+          src="/onshape-logo-RGB_KO.svg"
+          alt="Onshape"
+          className="onshape-icon"
+        />
+      </a>
+      <div className="intro-block">
+        <p className="intro">
+          The whole design is based heavily on the one in{" "}
+          <a href="https://www.youtube.com/watch?v=XczJJEDjXrA">this video</a>.
+          I basically copied the frame's shape by looking at it and chose the
+          dimensions based on the size of my own body. One difference in my
+          design is that I am planning on mounting the rear axle bearings on top
+          of the frame instead of underneath.
+        </p>
+        <p className="intro">
+          Most of the frame is made of 1/2" x 0.12" carbon steel square tubing
+          (A500/A513). I haven’t ordered the smaller tubing for the front
+          suspension or the seat holder yet.
+        </p>
+        <div className="intro">
+          <p>Here are all the components:</p>
+          <ul>
+            <li>Motor: QS138 90h v3</li>
+            <li>Controller: EM-260</li>
+            <li>
+              Batteries: SPIM08HP (in a 20s6p configuration, making 72V, 48AH,
+              with a max continuous output of 200A)
+            </li>
+            <li>BMS</li>
+            <li>Live axle kit</li>
+            <li>The bearings are UCP 206</li>
+            <li>Steering kit</li>
+            <li>Rear suspension: RFY Shocks</li>
+            <li>Front suspension</li>
+            <li>
+              Front hubs (I’m using ATV-style wheels: 4 stud, 110mm diameter
+              bolt pattern)
+            </li>
+            <li>
+              Wheels/tires (I got on Facebook Marketplace. They’re pretty
+              standard 4x110mm ATV wheels)
+            </li>
+            <li>
+              Seat: I’m planning on 3d-printing a seat (a draft of it is
+              included in the Onshape file) by printing it in multiple parts and
+              connecting them with M3 all-thread and welding them together with
+              a soldering iron.
+            </li>
+          </ul>
+        </div>
+        <p className="intro">
+          I plan on ordering the custom hinge parts and the custom motor mount
+          from an online website that offers plasma cutting.
+        </p>
+      </div>
+      <div className="divider"></div>
+      <h2 className="header">Astrophotography Project</h2>
       <div className="intro-block">
         <p className="intro">
           These are photos that I took as part of an Astrophotography workshop
@@ -32,7 +98,7 @@ export function HomePage() {
         </p>
       </div>
       <div className="fill">
-        <img src="/dipper-trail.jpg" className="image"></img>
+        <img src="/dipper-trail.jpg" className="image" alt=""></img>
         <p className="fill-description">
           This is a composite star trail photo of the sky. You can see Ursa
           Major (the Big Dipper) in the center at the bottom of the sky, and the
@@ -44,7 +110,7 @@ export function HomePage() {
         </p>
       </div>
       <div className="fill">
-        <img src="/moon.jpg" className="image"></img>
+        <img src="/moon.jpg" className="image" alt=""></img>
         <p className="fill-description">
           This is a picture of the Moon, Jupiter, and Pleiades. I had to stay up
           late for this one to wait for the moon to rise over the trees. This
@@ -52,7 +118,7 @@ export function HomePage() {
         </p>
       </div>
       <div className="fill">
-        <img src="/moon-trail.jpg" className="image"></img>
+        <img src="/moon-trail.jpg" className="image" alt=""></img>
         <p className="fill-description">
           This is a composite star trail photo of the same frame of the above
           photo over a couple hours. You can see the Moon rising. I had gone to
@@ -69,15 +135,17 @@ export function HomePage() {
         </p>
       </div>
       <div className="fill">
-        <img src="/long.jpg" className="image"></img>
+        <img src="/long.jpg" className="image" alt=""></img>
         <p className="fill-description">
-          This is a 30-minute exposure of the sky, with Polaris at the top of
-          the frame. Framing Polaris off center makes the image less symmetrical
-          and a little more interesting in my opinion.
+          This is a single 30-minute exposure of the sky, with Polaris at the
+          top of the frame. Framing Polaris off center makes the image less
+          symmetrical and a little more interesting in my opinion. Since it's
+          not a composite like the ones above, it doesn't look as clear, but it
+          is at least less processed and more pure in a sense.
         </p>
       </div>
       <div className="fill">
-        <img src="/eddie-exposed.jpg" className="image"></img>
+        <img src="/eddie-exposed.jpg" className="image" alt=""></img>
         <p className="fill-description">
           This is a light painting of me with an artistic representation of my
           dog, Eddie, in front of the Milky Way. It is a 30-second exposure.
@@ -110,14 +178,14 @@ export function HomePage() {
           <div>
             <h1 className="about-heading">About Me</h1>
             <p className="about-text">
-              I am a student at Skidmore College. I have otherwise lived in
-              Washington, DC my whole life. I am driven by trying to understand
-              things and solving problems ... Physics is one of my passions. I
-              learned photography to be able to capture the beauty of the
-              universe and learn about it.
+              I am a Physics student at Skidmore College. I have otherwise lived
+              in Washington, DC my whole life. I am driven by trying to
+              understand things and solving problems ... Physics is one of my
+              passions. I learned astrophotography to be able to capture the
+              beauty of the universe and learn about it.
             </p>
           </div>
-          <img src="/portrait.jpeg" className="portrait"></img>
+          <img src="/portrait.jpeg" className="portrait" alt=""></img>
         </div>
       </div>
     </div>
