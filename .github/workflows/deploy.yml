@@ -31,4 +31,4 @@ jobs:
         uses: denoland/deployctl@v1
         with:
           project: georgebankoff-xyz
-          root: dist
+          entrypoint: deploy.ts
