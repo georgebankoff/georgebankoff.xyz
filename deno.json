@@ -8,5 +8,5 @@
     "jsx": "react-jsx",
     "jsxImportSource": "react"
   },
-  "imports": "./import_map.json"
+  "importMap": "./import_map.json"
 }
