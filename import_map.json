@@ -5,6 +5,7 @@
     "react/": "https://esm.sh/v106/*react@18.2.0/",
     "react-dom": "https://esm.sh/v106/*react-dom@18.2.0",
     "react-dom/": "https://esm.sh/v106/*react-dom@18.2.0/",
+    "react-dom/client": "https://esm.sh/v106/*react-dom@18.2.0/client",
     "scheduler": "https://esm.sh/v106/*scheduler@0.23.0",
     "scheduler/": "https://esm.sh/v106/*scheduler@0.23.0/"
   },
