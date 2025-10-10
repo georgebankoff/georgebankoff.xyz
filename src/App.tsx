@@ -35,6 +35,20 @@ export function HomePage() {
           className="onshape-icon"
         />
       </a>
+      <div className="fill">
+        <div className="image-row">
+          <img
+            src="/chassis.png"
+            alt="Go-kart chassis"
+            className="image chassis-image"
+          />
+          <img
+            src="/assembly.png"
+            alt="Go-kart assembly"
+            className="image assembly-image"
+          />
+        </div>
+      </div>
       <div className="intro-block">
         <p className="intro">
           The whole design is based heavily on the one in{" "}
