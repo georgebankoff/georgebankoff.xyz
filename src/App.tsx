@@ -114,13 +114,13 @@ export function HomePage() {
       <div className="fill">
         <img src="/dipper-trail.jpg" className="image" alt=""></img>
         <p className="fill-description">
-          This is a composite star trail photo of the sky. You can see Ursa
-          Major (the Big Dipper) in the center at the bottom of the sky, and the
-          stars rotating around Polaris in the upper right. To create this
-          effect, I captured 407 exposures over about 3 hours, and converted all
-          of my raw photos into TIFFs, and then stacked them using a computer
-          program called StarStax. I then removed satellite streaks from the
-          image using Photoshop.
+          This is a composite star trail photo of the sky. You can (if you look
+          closely) see Ursa Major (the Big Dipper) in the center at the bottom
+          of the sky, and the stars rotating around Polaris in the upper right.
+          To create this effect, I captured 407 exposures over about 3 hours,
+          and converted all of my raw photos into TIFFs, and then stacked them
+          using a computer program called StarStax. I then removed satellite
+          streaks from the image using Photoshop.
         </p>
       </div>
       <div className="fill">
