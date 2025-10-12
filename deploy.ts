@@ -1,29 +1,29 @@
 import { serve } from "https://deno.land/std@0.177.0/http/server.ts";
-import { serveDir } from "https://deno.land/std@0.177.0/http/file_server.ts";
+import { serveFile } from "https://deno.land/std@0.177.0/http/file_server.ts";
+import { join, extname } from "https://deno.land/std@0.177.0/path/mod.ts";
+
+const distDir = "dist";
 
 serve(async (req) => {
-  console.log(`Request: ${req.method} ${req.url}`);
+  const url = new URL(req.url);
+  const pathname = url.pathname;
+  const filePath = join(distDir, pathname === "/" ? "index.html" : pathname);
 
   try {
-    const response = await serveDir(req, {
-      fsRoot: "dist",
-      urlRoot: "",
-    });
-
-    if (response.status === 404) {
-      console.log(`Got 404, serving index.html instead.`);
-      const index = await Deno.readFile("./dist/index.html");
-      return new Response(index, {
-        status: 200,
-        headers: {
-          "content-type": "text/html",
-        },
-      });
+    const fileInfo = await Deno.stat(filePath);
+    if (fileInfo.isFile) {
+      return await serveFile(req, filePath);
     }
-
-    return response;
-  } catch (error) {
-    console.error("Error serving request:", error);
-    return new Response("Internal server error", { status: 500 });
+  } catch (e) {
+    if (e instanceof Deno.errors.NotFound) {
+      // If file not found, and it's a navigation event (no extension), serve index.html
+      if (!extname(pathname)) {
+        const indexPath = join(distDir, "index.html");
+        return await serveFile(req, indexPath);
+      }
+    }
   }
+
+  // For assets that are not found, return 404
+  return new Response("Not Found", { status: 404 });
 });
