@@ -23,7 +23,7 @@ export function HomePage() {
       <div className="divider"></div>
       <h2 className="header">Electric Go-Kart Project</h2>
       <a
-        href="https://cad.onshape.com/documents/30826ce72678de87a3030163/w/d03a12ae59ca6e45fa57a4e4/e/b5c667bb1a43fcd1659505ac?renderMode=0&uiState=68e8585d196e8a6f1760b048"
+        href="https://cad.onshape.com/documents/30826ce72678de87a3030163/w/d03a12ae59ca6e45fa57a4e4/e/749916287025791471a0d653?renderMode=0&uiState=68ec21d4b94f26ff8b2c91ce"
         target="_blank"
         rel="noopener noreferrer"
         className="onshape-link"
