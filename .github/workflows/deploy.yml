@@ -32,6 +32,3 @@ jobs:
         with:
           project: georgebankoff-xyz
           entrypoint: deploy.ts
-          include: |
-            deploy.ts
-            dist/
