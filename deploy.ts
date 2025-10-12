@@ -1,17 +1,35 @@
 import { serve } from "https://deno.land/std@0.177.0/http/server.ts";
-import { serveDir } from "https://deno.land/std@0.177.0/http/file_server.ts
+import { serveFile } from "https://deno.land/std@0.177.0/http/file_server.ts";
+import {
+  join,
+  dirname,
+  fromFileUrl,
+  extname,
+} from "https://deno.land/std@0.177.0/path/mod.ts";
 
-<<<<<<< HEAD
+const __dirname = dirname(fromFileUrl(import.meta.url));
+const distDir = join(__dirname, "dist");
 
+serve(async (req) => {
+  const url = new URL(req.url);
+  const pathname = url.pathname;
+  const filePath = join(distDir, pathname === "/" ? "index.html" : pathname);
 
-  ,
-";
+  try {
+    const fileInfo = await Deno.stat(filePath);
+    if (fileInfo.isFile) {
+      return await serveFile(req, filePath);
+    }
+  } catch (e) {
+    if (e instanceof Deno.errors.NotFound) {
+      // If file not found, and it's a navigation event (no extension), serve index.html
+      if (!extname(pathname)) {
+        const indexPath = join(distDir, "index.html");
+        return await serveFile(req, indexPath);
+      }
+    }
+  }
 
-serve(req => {
-=======
-serve((req) => {
->>>>>>> parent of 303ba8e (Revert "Upgrade Deno and clean up deployment code")
-  return serveDir(req, {
-    fsRoot: "dist",
-  });
+  // For assets that are not found, return 404
+  return new Response("Not Found", { status: 404 });
 });
