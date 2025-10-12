@@ -1,8 +1,14 @@
 import { serve } from "https://deno.land/std@0.177.0/http/server.ts";
 import { serveFile } from "https://deno.land/std@0.177.0/http/file_server.ts";
-import { join, extname } from "https://deno.land/std@0.177.0/path/mod.ts";
+import {
+  join,
+  dirname,
+  fromFileUrl,
+  extname,
+} from "https://deno.land/std@0.177.0/path/mod.ts";
 
-const distDir = "dist";
+const __dirname = dirname(fromFileUrl(import.meta.url));
+const distDir = join(__dirname, "dist");
 
 serve(async (req) => {
   const url = new URL(req.url);
