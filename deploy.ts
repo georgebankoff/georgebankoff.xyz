@@ -5,7 +5,6 @@ import { join, extname } from "https://deno.land/std@0.177.0/path/mod.ts";
 // In Deno Deploy, the project files are in /src
 const distDir = "/src/dist";
 
-<<<<<<< HEAD
 serve(async (req) => {
   const url = new URL(req.url);
   const pathname = url.pathname;
@@ -28,10 +27,4 @@ serve(async (req) => {
 
   // For assets that are not found, return 404
   return new Response("Not Found", { status: 404 });
-=======
-serve((req) => {
-  return serveDir(req, {
-    fsRoot: "dist",
-  });
->>>>>>> parent of 303ba8e (Revert "Upgrade Deno and clean up deployment code")
 });
