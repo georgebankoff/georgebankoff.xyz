@@ -60,11 +60,10 @@ export function HomePage() {
         </p>
         <p className="intro">
           Most of the frame is made of 1/2" x 0.12" carbon steel square tubing
-          (A500/A513). I haven’t ordered the smaller tubing for the front
-          suspension or the seat holder yet.
+          (A500/A513).
         </p>
         <div className="intro">
-          <p>Here are all the components:</p>
+          <p>Components:</p>
           <ul>
             <li>Motor: QS138 90h v3</li>
             <li>Controller: EM-260</li>
@@ -108,7 +107,7 @@ export function HomePage() {
           one of the leading night sky photographers. I took and processed all
           of these images myself using a Canon Rebel T7 and a Canon EOS 5D Mark
           III, with a fisheye lens and a 16-35mm telescope lens that I borrowed
-          from my friend (Alfonso). I programmed this website using React.
+          from my friend (Alfonso).
         </p>
       </div>
       <div className="fill">
