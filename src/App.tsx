@@ -53,10 +53,10 @@ export function HomePage() {
         <p className="intro">
           The whole design is based heavily on the one in{" "}
           <a href="https://www.youtube.com/watch?v=XczJJEDjXrA">this video</a>.
-          I basically copied the frame's shape by looking at it and chose the
-          dimensions based on the size of my own body. One difference in my
+          I modeled the frame after the design in this video and made custom
+          modifications based on the size of my own body. One difference in my
           design is that I am planning on mounting the rear axle bearings on top
-          of the frame instead of underneath.
+          of the frame instead of underneath to minimize the ride height.
         </p>
         <p className="intro">
           Most of the frame is made of 1/2" x 0.12" carbon steel square tubing
