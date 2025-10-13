@@ -53,12 +53,12 @@ export function HomePage() {
       </div>
       <div className="intro-block">
         <p className="intro">
-          The whole design is based heavily on the one in{" "}
-          <a href="https://www.youtube.com/watch?v=XczJJEDjXrA">this video</a>.
-          I modeled the frame after the design in this video and made custom
-          modifications based on the size of my own body. One difference in my
-          design is that I am planning on mounting the rear axle bearings on top
-          of the frame instead of underneath to minimize the ride height.
+          I modeled the frame after the design in{" "}
+          <a href="https://www.youtube.com/watch?v=XczJJEDjXrA">this video</a>{" "}
+          and made custom modifications based on the size of my own body. One
+          key difference in my design is that I am planning on mounting the rear
+          axle bearings on top of the frame instead of underneath to minimize
+          the ride height.
         </p>
         <p className="intro">
           Most of the frame is made of 1/2" x 0.12" carbon steel square tubing

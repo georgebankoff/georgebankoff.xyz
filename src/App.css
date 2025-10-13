@@ -96,12 +96,11 @@ a:hover {
 
 div.intro {
     background-color: rgba(0, 0, 0, 0.15);
-    border-radius: 8px;
     padding-top: 0rem;
     padding-bottom: 0rem;
     padding-left: 1.5rem;
     padding-right: 1.5rem;
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    border: 4px ridge rgba(255, 255, 255, 0.2);
     /*box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);*/
 }
 
