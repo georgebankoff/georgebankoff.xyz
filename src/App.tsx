@@ -1,6 +1,7 @@
 import React from "react";
 // import Image from "https://esm.sh/react-image-enlarger";
 import "./App.css";
+import StarryNight from "./StarryNight";
 
 // function SingleSource() {
 //   const [zoomed, setZoomed] = React.useState(false);
@@ -19,6 +20,7 @@ import "./App.css";
 export function HomePage() {
   return (
     <div className="App">
+      <StarryNight />
       <h1 className="header">George Bankoff</h1>
       <div className="divider"></div>
       <h2 className="header">Electric Go-Kart Project</h2>
@@ -76,17 +78,17 @@ export function HomePage() {
             <li>The bearings are UCP 206</li>
             <li>Steering kit</li>
             <li>Rear suspension: RFY Shocks</li>
-            <li>Front suspension</li>
+            <li>Front suspension kit</li>
             <li>
-              Front hubs (I’m using ATV-style wheels: 4 stud, 110mm diameter
+              Front hubs (I'm using ATV-style wheels: 4 stud, 110mm diameter
               bolt pattern)
             </li>
             <li>
-              Wheels/tires (I got on Facebook Marketplace. They’re pretty
+              Wheels/tires (I got on Facebook Marketplace. They're pretty
               standard 4x110mm ATV wheels)
             </li>
             <li>
-              Seat: I’m planning on 3d-printing a seat (a draft of it is
+              Seat: I'm planning on 3d-printing a seat (a draft of it is
               included in the Onshape file) by printing it in multiple parts and
               connecting them with M3 all-thread and welding them together with
               a soldering iron.
