@@ -69,8 +69,8 @@ const StarryNight: React.FC = () => {
       // Pixel stars as crisp small squares
       stars.forEach((star) => {
         star.opacity += star.twinkleSpeed;
-        if (star.opacity > 1) {
-          star.opacity = 1;
+        if (star.opacity > 0.8) {
+          star.opacity = 0.8;
           star.twinkleSpeed *= -1;
         } else if (star.opacity < 0.3) {
           star.opacity = 0.3;
