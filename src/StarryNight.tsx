@@ -63,7 +63,7 @@ const StarryNight: React.FC = () => {
 
     const draw = () => {
       ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
-      ctx.fillStyle = "#1a1a2e";
+      ctx.fillStyle = "#12121F";
       ctx.fillRect(0, 0, window.innerWidth, window.innerHeight);
 
       // Pixel stars as crisp small squares

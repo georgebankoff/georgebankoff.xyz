@@ -53,12 +53,28 @@ export function HomePage() {
       </div>
       <div className="intro-block">
         <p className="intro">
+          I have wanted to build a go-kart for a long time. It's just a classic
+          project that's both challenging and fulfilling, because you end up
+          with something fun. I'm a big fan of F1, so that contributed to my
+          desire to start this project. I wanted to make the project from
+          scratch to develop my engineering skils. I spent a while researching
+          the best way to go about making a go-kart from scratch and ended up
+          watching many videos and reading many blog posts of other people's
+          projects. I ended up choosing a frame design from one particular
+          video, which was very aligned with what I had in mind.
+        </p>
+        <p className="intro">
           I modeled the frame after the design in{" "}
           <a href="https://www.youtube.com/watch?v=XczJJEDjXrA">this video</a>{" "}
           and made custom modifications based on the size of my own body. One
           key difference in my design is that I am planning on mounting the rear
           axle bearings on top of the frame instead of underneath to minimize
           the ride height.
+        </p>
+        <p className="intro">
+          If I were to design another kart, I would definitely ditch the live
+          axle and have one motor on each wheel to enable things like torque
+          vectoring.
         </p>
         <p className="intro">
           Most of the frame is made of 1/2" x 0.12" carbon steel square tubing
