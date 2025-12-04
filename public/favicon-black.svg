@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 16 16">
   <title>Pixel Art Letter G Favicon</title>
-  <desc>A minimalist, modern yellow pixel art letter 'G' designed as an astrophotography website favicon.</desc>
-  <g fill="#FFD700">
+  <desc>A minimalist, modern black pixel art letter 'G' designed as an astrophotography website favicon.</desc>
+  <g fill="#000000">
     <rect x="3" y="2" width="7" height="2" />
     <rect x="3" y="4" width="2" height="6" />
     <rect x="3" y="10" width="9" height="2" />
