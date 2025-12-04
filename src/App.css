@@ -3,8 +3,13 @@
     text-align: center;
 }
 
+body {
+    font-family: "Outfit", sans-serif;
+    font-size: 1.2rem;
+}
+
 h1.header {
-    font-family: "Jacquard 12", system-ui;
+    font-family: "Jacquarda Bastarda 9", system-ui;
     font-size: 6.2rem;
     margin-bottom: 0.5rem;
 }
@@ -69,8 +74,8 @@ a:hover {
 .divider {
     width: 60%;
     max-width: 600px;
-    height: 2px;
-    background: linear-gradient(to right, transparent, #666, transparent);
+    height: 4px;
+    background: white;
     margin: 3rem auto;
 }
 
@@ -84,6 +89,7 @@ a:hover {
     padding-left: 5%;
     padding-right: 5%;
     margin-bottom: 0.5rem;
+    font-family: "Outfit", sans-serif;
 }
 
 .intro-block {
@@ -95,25 +101,41 @@ a:hover {
 }
 
 div.intro {
-    background-color: rgba(0, 0, 0, 0.15);
-    padding-top: 0rem;
-    padding-bottom: 0rem;
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
-    border: 4px ridge rgba(255, 255, 255, 0.2);
-    /*box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);*/
+    background-color: transparent;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    border: 4px solid white;
 }
 
 div.intro p {
     text-align: center;
+    font-weight: 500;
+    margin-top: 0;
+    margin-bottom: 0.5rem;
 }
 
 .intro ul {
     text-align: left;
+    list-style: none;
+    padding-left: 0;
+    margin: 0.5rem 0;
 }
 
 .intro ul li {
-    font-family: "Rubik";
+    font-family: "Outfit", sans-serif;
+    padding: 0.25rem 0;
+    position: relative;
+    padding-left: 1.5rem;
+}
+
+.intro ul li::before {
+    content: "▸";
+    position: absolute;
+    left: 0;
+    color: white;
+    font-weight: bold;
 }
 
 .image {
@@ -152,6 +174,7 @@ div.intro p {
     text-align: justify;
     margin-top: 1%;
     margin-bottom: 4%;
+    font-family: "Outfit", sans-serif;
     /* width:50%;
   margin-left:auto;
   margin-right: auto; */
@@ -184,6 +207,7 @@ div.intro p {
     padding-right: 36%;
     color: white;
     padding-left: 10%;
+    font-family: "Outfit", sans-serif;
 }
 
 .portrait {
