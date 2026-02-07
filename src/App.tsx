@@ -22,7 +22,7 @@ export function HomePage() {
     <div className="App">
       <StarryNight />
       <h1 className="header">George Bankoff</h1>
-      <div className="divider name-divider"></div>
+      {/*<div className="divider name-divider"></div>*/}
       <h2 className="header">Electric Go-Kart Project</h2>
       <a
         href="https://cad.onshape.com/documents/30826ce72678de87a3030163/w/d03a12ae59ca6e45fa57a4e4/e/749916287025791471a0d653?renderMode=0&uiState=68ec21d4b94f26ff8b2c91ce"
