@@ -211,7 +211,7 @@ export function HomePage() {
             <p className="about-text">
               I am a Physics student at Skidmore College. I have otherwise lived
               in Washington, DC my whole life. I am driven by trying to
-              understand things and solving problems ... Physics is one of my
+              understand things and solving problems. Physics is one of my
               passions. I learned astrophotography to be able to capture the
               beauty of the universe and learn about it.
             </p>
