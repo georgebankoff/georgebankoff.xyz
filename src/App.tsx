@@ -1,6 +1,7 @@
 import React from "react";
 // import Image from "https://esm.sh/react-image-enlarger";
 import "./App.css";
+import "./ComponentsList.css";
 import StarryNight from "./StarryNight";
 
 // function SingleSource() {
@@ -80,36 +81,118 @@ export function HomePage() {
           Most of the frame is made of 1/2" x 0.12" carbon steel square tubing
           (A500/A513).
         </p>
-        <div className="intro">
-          <p>Components:</p>
-          <ul>
-            <li>Motor: QS138 90h v3</li>
-            <li>Controller: EM-260</li>
-            <li>
-              Batteries: SPIM08HP (in a 20s6p configuration, making 72V, 48AH,
-              with a max continuous output of 200A)
-            </li>
-            <li>BMS</li>
-            <li>Live axle kit</li>
-            <li>The bearings are UCP 206</li>
-            <li>Steering kit</li>
-            <li>Rear suspension: RFY Shocks</li>
-            <li>Front suspension kit</li>
-            <li>
-              Front hubs (I'm using ATV-style wheels: 4 stud, 110mm diameter
-              bolt pattern)
-            </li>
-            <li>
-              Wheels/tires (I got on Facebook Marketplace. They're pretty
-              standard 4x110mm ATV wheels)
-            </li>
-            <li>
-              Seat: I'm planning on 3d-printing a seat (a draft of it is
-              included in the Onshape file) by printing it in multiple parts and
-              connecting them with M3 all-thread and welding them together with
-              a soldering iron.
-            </li>
-          </ul>
+        <div className="components-panel">
+          <h3 className="components-title">Components</h3>
+
+          <div className="components-grid">
+            <div className="component-category">
+              <span className="category-label">⚡ Electrical</span>
+              <div className="component-item">
+                <span className="pixel-bullet" />
+                <div>
+                  <span className="component-name">Motor</span>
+                  <span className="component-detail">QS138 90h v3</span>
+                </div>
+              </div>
+              <div className="component-item">
+                <span className="pixel-bullet" />
+                <div>
+                  <span className="component-name">Controller</span>
+                  <span className="component-detail">EM-260</span>
+                </div>
+              </div>
+              <div className="component-item">
+                <span className="pixel-bullet" />
+                <div>
+                  <span className="component-name">Batteries</span>
+                  <span className="component-detail">
+                    SPIM08HP — 20s6p config, 72V, 48AH, 200A max continuous
+                  </span>
+                </div>
+              </div>
+              <div className="component-item">
+                <span className="pixel-bullet" />
+                <div>
+                  <span className="component-name">BMS</span>
+                  <span className="component-detail">
+                    Battery management system
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <div className="component-category">
+              <span className="category-label">⚙ Drivetrain</span>
+              <div className="component-item">
+                <span className="pixel-bullet" />
+                <div>
+                  <span className="component-name">Live axle kit</span>
+                </div>
+              </div>
+              <div className="component-item">
+                <span className="pixel-bullet" />
+                <div>
+                  <span className="component-name">Bearings</span>
+                  <span className="component-detail">UCP 206</span>
+                </div>
+              </div>
+              <div className="component-item">
+                <span className="pixel-bullet" />
+                <div>
+                  <span className="component-name">Steering kit</span>
+                </div>
+              </div>
+            </div>
+
+            <div className="component-category">
+              <span className="category-label">🛞 Suspension &amp; Wheels</span>
+              <div className="component-item">
+                <span className="pixel-bullet" />
+                <div>
+                  <span className="component-name">Rear suspension</span>
+                  <span className="component-detail">RFY Shocks</span>
+                </div>
+              </div>
+              <div className="component-item">
+                <span className="pixel-bullet" />
+                <div>
+                  <span className="component-name">Front suspension kit</span>
+                </div>
+              </div>
+              <div className="component-item">
+                <span className="pixel-bullet" />
+                <div>
+                  <span className="component-name">Front hubs</span>
+                  <span className="component-detail">
+                    ATV-style, 4 stud, 110mm bolt pattern
+                  </span>
+                </div>
+              </div>
+              <div className="component-item">
+                <span className="pixel-bullet" />
+                <div>
+                  <span className="component-name">Wheels / tires</span>
+                  <span className="component-detail">
+                    Standard 4×110mm ATV wheels (Facebook Marketplace)
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <div className="component-category">
+              <span className="category-label">💺 Other</span>
+              <div className="component-item">
+                <span className="pixel-bullet" />
+                <div>
+                  <span className="component-name">Seat</span>
+                  <span className="component-detail">
+                    3D-printed in sections, joined with M3 all-thread &amp;
+                    soldering-iron welded. Draft included in the Onshape file.
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
         <p className="intro">
           I plan on ordering the custom hinge parts and the custom motor mount
