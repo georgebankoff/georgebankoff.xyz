@@ -1,5 +1,7 @@
 .components-panel {
     max-width: 35rem;
+    width: 90%;
+    box-sizing: border-box;
     margin-top: 0.5rem;
     border: 2px solid rgba(255, 255, 255, 0.15);
     background: rgba(255, 255, 255, 0.03);

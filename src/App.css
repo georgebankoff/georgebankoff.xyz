@@ -10,7 +10,7 @@ body {
 
 h1.header {
     font-family: "Jacquarda Bastarda 9", system-ui;
-    font-size: 6.2rem;
+    font-size: clamp(2.5rem, 10vw, 6.2rem);
     margin-bottom: 0.5rem;
 }
 
@@ -193,6 +193,8 @@ div.intro p {
 .about {
     display: flex;
     flex-direction: row;
+    max-width: 100%;
+    overflow: hidden;
 }
 
 .about-heading {
@@ -215,7 +217,7 @@ div.intro p {
     max-width: 30%;
     padding-top: 2rem;
     padding-bottom: 2rem;
-    padding-right: 5rem;
+    padding-right: clamp(1rem, 5vw, 5rem);
 }
 
 @media screen and (max-width: 580px) {
@@ -225,9 +227,7 @@ div.intro p {
     .about-text {
         padding-right: 10%;
     }
-    .header {
-        font-size: 2.25rem;
-    }
+
     .image-row {
         flex-direction: column;
     }
