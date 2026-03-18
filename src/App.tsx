@@ -86,7 +86,7 @@ export function HomePage() {
 
           <div className="components-grid">
             <div className="component-category">
-              <span className="category-label">⚡ Electrical</span>
+              <span className="category-label">Electrical</span>
               <div className="component-item">
                 <span className="pixel-bullet" />
                 <div>
@@ -122,7 +122,7 @@ export function HomePage() {
             </div>
 
             <div className="component-category">
-              <span className="category-label">⚙ Drivetrain</span>
+              <span className="category-label">Drivetrain</span>
               <div className="component-item">
                 <span className="pixel-bullet" />
                 <div>
@@ -145,7 +145,7 @@ export function HomePage() {
             </div>
 
             <div className="component-category">
-              <span className="category-label">🛞 Suspension &amp; Wheels</span>
+              <span className="category-label">Suspension &amp; Wheels</span>
               <div className="component-item">
                 <span className="pixel-bullet" />
                 <div>
@@ -180,7 +180,7 @@ export function HomePage() {
             </div>
 
             <div className="component-category">
-              <span className="category-label">💺 Other</span>
+              <span className="category-label">Other</span>
               <div className="component-item">
                 <span className="pixel-bullet" />
                 <div>
