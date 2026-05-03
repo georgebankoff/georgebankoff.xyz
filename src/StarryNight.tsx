@@ -1,6 +1,25 @@
 import React, { useRef, useEffect } from "react";
 import "./StarryNight.css";
 
+interface Star {
+  x: number;
+  y: number;
+  size: number;
+  opacity: number;
+  twinkleSpeed: number;
+}
+
+interface ShootingStar {
+  x: number;
+  y: number;
+  vx: number;
+  vy: number;
+  opacity: number;
+  trail: { x: number; y: number }[];
+  trailLen: number;
+  size: number;
+}
+
 const StarryNight: React.FC = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
@@ -11,8 +30,12 @@ const StarryNight: React.FC = () => {
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
+    const reducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
+
     let animationFrameId: number;
-    const pixelSize = 1.5; // smaller pixels for subtle stars
+    const pixelSize = 1.5;
 
     const resizeCanvas = () => {
       const dpr = window.devicePixelRatio || 1;
@@ -20,15 +43,15 @@ const StarryNight: React.FC = () => {
       canvas.height = window.innerHeight * dpr;
       canvas.style.width = `${window.innerWidth}px`;
       canvas.style.height = `${window.innerHeight}px`;
-      ctx.setTransform(1, 0, 0, 1, 0, 0); // clear transform
+      ctx.setTransform(1, 0, 0, 1, 0, 0);
       ctx.scale(dpr, dpr);
     };
 
     resizeCanvas();
     window.addEventListener("resize", resizeCanvas);
 
-    const stars: any[] = [];
-    const shootingStars: any[] = [];
+    const stars: Star[] = [];
+    const shootingStars: ShootingStar[] = [];
     const numStars = 200;
 
     // Smaller pixelated square stars
@@ -87,22 +110,18 @@ const StarryNight: React.FC = () => {
         ctx.globalAlpha = 1;
       });
 
-      // Shooting star with randomized directions
-      shootingStars.forEach((star, i) => {
-        // Update trail
+      for (let i = shootingStars.length - 1; i >= 0; i--) {
+        const star = shootingStars[i];
         star.trail.unshift({ x: star.x, y: star.y });
         if (star.trail.length > star.trailLen) star.trail.pop();
 
-        // Move star dot
         star.x += star.vx;
         star.y += star.vy;
 
-        // Fade out at end of trail
         if (star.trail.length === star.trailLen) star.opacity -= 0.035;
 
-        // Draw the trailing pixel squares
         for (let t = star.trail.length - 1; t >= 0; t--) {
-          let fade = Math.max(0, star.opacity * (t / star.trailLen));
+          const fade = Math.max(0, star.opacity * (t / star.trailLen));
           ctx.globalAlpha = fade;
           ctx.fillStyle = "#fff";
           ctx.fillRect(
@@ -113,7 +132,6 @@ const StarryNight: React.FC = () => {
           );
         }
 
-        // Draw the "dot"
         ctx.globalAlpha = Math.max(0, star.opacity);
         ctx.fillStyle = "#fff";
         ctx.fillRect(
@@ -124,7 +142,6 @@ const StarryNight: React.FC = () => {
         );
         ctx.globalAlpha = 1;
 
-        // Remove if faded or off screen
         if (
           star.opacity <= 0 ||
           star.x > window.innerWidth + 10 ||
@@ -132,10 +149,31 @@ const StarryNight: React.FC = () => {
         ) {
           shootingStars.splice(i, 1);
         }
-      });
+      }
 
       animationFrameId = requestAnimationFrame(draw);
     };
+
+    if (reducedMotion) {
+      // Single static frame, no animation loop or shooting stars.
+      ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
+      ctx.fillStyle = "#12121F";
+      ctx.fillRect(0, 0, window.innerWidth, window.innerHeight);
+      stars.forEach((star) => {
+        ctx.globalAlpha = 0.7;
+        ctx.fillStyle = "#fff";
+        ctx.fillRect(
+          star.x,
+          star.y,
+          star.size * pixelSize,
+          star.size * pixelSize,
+        );
+        ctx.globalAlpha = 1;
+      });
+      return () => {
+        window.removeEventListener("resize", resizeCanvas);
+      };
+    }
 
     draw();
 
