@@ -212,7 +212,11 @@ export function HomePage() {
         </p>
       </div>
       <div className="fill">
-        <img src="/dipper-trail.jpg" className="image" alt=""></img>
+        <img
+          src="/dipper-trail.jpg"
+          className="image"
+          alt="Composite star trail photo showing Ursa Major and stars rotating around Polaris"
+        ></img>
         <p className="fill-description">
           This is a composite star trail photo of the sky. You can (if you look
           closely) see Ursa Major (the Big Dipper) in the center at the bottom
@@ -224,7 +228,11 @@ export function HomePage() {
         </p>
       </div>
       <div className="fill">
-        <img src="/moon.jpg" className="image" alt=""></img>
+        <img
+          src="/moon.jpg"
+          className="image"
+          alt="The Moon rising near Jupiter and the Pleiades, captured with a fisheye lens at 30 seconds"
+        ></img>
         <p className="fill-description">
           This is a picture of the Moon, Jupiter, and Pleiades. I had to stay up
           late for this one to wait for the moon to rise over the trees. This
@@ -232,7 +240,11 @@ export function HomePage() {
         </p>
       </div>
       <div className="fill">
-        <img src="/moon-trail.jpg" className="image" alt=""></img>
+        <img
+          src="/moon-trail.jpg"
+          className="image"
+          alt="Composite star trail photo showing the Moon rising over a few hours, with concentric trails warped by a fisheye lens"
+        ></img>
         <p className="fill-description">
           This is a composite star trail photo of the same frame of the above
           photo over a couple hours. You can see the Moon rising. I had gone to
@@ -249,7 +261,11 @@ export function HomePage() {
         </p>
       </div>
       <div className="fill">
-        <img src="/long.jpg" className="image" alt=""></img>
+        <img
+          src="/long.jpg"
+          className="image"
+          alt="Single 30-minute exposure of the night sky with Polaris framed off-center near the top"
+        ></img>
         <p className="fill-description">
           This is a single 30-minute exposure of the sky, with Polaris at the
           top of the frame. Framing Polaris off center makes the image less
@@ -259,7 +275,11 @@ export function HomePage() {
         </p>
       </div>
       <div className="fill">
-        <img src="/eddie-exposed.jpg" className="image" alt=""></img>
+        <img
+          src="/eddie-exposed.jpg"
+          className="image"
+          alt="Light-painted self portrait with a flashlight-drawn outline of a dog in front of the Milky Way, 30-second exposure"
+        ></img>
         <p className="fill-description">
           This is a light painting of me with an artistic representation of my
           dog, Eddie, in front of the Milky Way. It is a 30-second exposure.
@@ -299,7 +319,11 @@ export function HomePage() {
               beauty of the universe and learn about it.
             </p>
           </div>
-          <img src="/portrait.jpeg" className="portrait" alt=""></img>
+          <img
+            src="/portrait.jpeg"
+            className="portrait"
+            alt="Portrait of George Bankoff"
+          ></img>
         </div>
       </div>
     </div>

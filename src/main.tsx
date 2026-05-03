@@ -4,9 +4,9 @@ import ReactDOM from "react-dom/client";
 import App from "./App.tsx";
 import "./index.css";
 
-console.log("Hello from main.tsx!");
-// Bind react app to <div id="app" />
-const root = ReactDOM.createRoot(document.getElementById("root"));
+const container = document.getElementById("root");
+if (!container) throw new Error('Missing #root element');
+const root = ReactDOM.createRoot(container);
 root.render(
   <BrowserRouter>
     <App />
