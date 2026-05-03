@@ -177,12 +177,20 @@ const StarryNight: React.FC = () => {
 
     draw();
 
-    const shootingStarInterval = setInterval(createShootingStar, 4500);
+    let shootingStarTimeout: number;
+    const scheduleShootingStar = () => {
+      const delay = 4500 + Math.random() * 5500;
+      shootingStarTimeout = window.setTimeout(() => {
+        createShootingStar();
+        scheduleShootingStar();
+      }, delay);
+    };
+    scheduleShootingStar();
 
     return () => {
       window.removeEventListener("resize", resizeCanvas);
       cancelAnimationFrame(animationFrameId);
-      clearInterval(shootingStarInterval);
+      clearTimeout(shootingStarTimeout);
     };
   }, []);
 
