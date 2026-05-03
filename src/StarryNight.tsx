@@ -177,7 +177,7 @@ const StarryNight: React.FC = () => {
 
     draw();
 
-    const shootingStarInterval = setInterval(createShootingStar, 3000);
+    const shootingStarInterval = setInterval(createShootingStar, 4500);
 
     return () => {
       window.removeEventListener("resize", resizeCanvas);
