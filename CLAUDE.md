@@ -39,4 +39,10 @@ Single-page personal site. React 18 + TypeScript, bundled with Vite, run under D
 
 ## Deployment
 
-Deployed to Deno Deploy via `.github/workflows/deploy.yml` on push to `main`. The workflow runs `deno task build` and then `deployctl` with `entrypoint: deploy.ts`. `deploy.ts` is a tiny Deno HTTP server that serves the built `dist/` directory using `std@0.177.0/http`. The `dist/` directory is currently checked into the repo despite being listed in `.gitignore` — be aware before adding it to commits.
+Deployed to GitHub Pages via `.github/workflows/deploy.yml` on push to `main`. The workflow runs `deno task build`, uploads `dist/` as a Pages artifact, then deploys it. No server code is involved — the site is fully static.
+
+Previously this deployed to Deno Deploy Classic with a `deploy.ts` Deno HTTP server as the entrypoint. Deno Deploy Classic was sunset on 2026-07-20, which took the site down; `deploy.ts` was deleted in the migration since a static host needs no entrypoint.
+
+`public/CNAME` holds the custom domain (`georgebankoff.xyz`). Vite copies it to `dist/` on build, which is how GitHub Pages keeps the domain across deploys — don't delete it.
+
+`dist/` is gitignored and not tracked; the workflow builds it fresh.
