@@ -89,7 +89,7 @@ const StarryNight: React.FC = () => {
       if (!isAnimating) return;
 
       ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
-      ctx.fillStyle = "#12121F";
+      ctx.fillStyle = "#000000";
       ctx.fillRect(0, 0, window.innerWidth, window.innerHeight);
 
       // Pixel stars as crisp small squares
@@ -103,7 +103,7 @@ const StarryNight: React.FC = () => {
           star.twinkleSpeed *= -1;
         }
         ctx.globalAlpha = star.opacity;
-        ctx.fillStyle = "#fff";
+        ctx.fillStyle = "#f5f5f7";
         ctx.fillRect(
           star.x,
           star.y,
@@ -126,7 +126,7 @@ const StarryNight: React.FC = () => {
         for (let t = star.trail.length - 1; t >= 0; t--) {
           const fade = Math.max(0, star.opacity * (t / star.trailLen));
           ctx.globalAlpha = fade;
-          ctx.fillStyle = "#fff";
+          ctx.fillStyle = "#f5f5f7";
           ctx.fillRect(
             star.trail[t].x,
             star.trail[t].y,
@@ -136,7 +136,7 @@ const StarryNight: React.FC = () => {
         }
 
         ctx.globalAlpha = Math.max(0, star.opacity);
-        ctx.fillStyle = "#fff";
+        ctx.fillStyle = "#f5f5f7";
         ctx.fillRect(
           star.x,
           star.y,
@@ -160,11 +160,11 @@ const StarryNight: React.FC = () => {
     if (reducedMotion) {
       // Single static frame, no animation loop or shooting stars.
       ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
-      ctx.fillStyle = "#12121F";
+      ctx.fillStyle = "#000000";
       ctx.fillRect(0, 0, window.innerWidth, window.innerHeight);
       stars.forEach((star) => {
         ctx.globalAlpha = 0.7;
-        ctx.fillStyle = "#fff";
+        ctx.fillStyle = "#f5f5f7";
         ctx.fillRect(
           star.x,
           star.y,

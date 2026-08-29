@@ -15,14 +15,14 @@
 }
 
 .projects-view {
-  --text: #ffffff;
+  --text: #f5f5f7;
   --heading: #ffffff;
-  --link: #8fb1ff;
-  --link-hover: #c4d6ff;
-  --accent: #6f94ff;
-  --meta: rgba(255, 255, 255, 0.68);
-  --muted: rgba(255, 255, 255, 0.52);
-  --hairline: rgba(255, 255, 255, 0.18);
+  --link: #0a84ff;
+  --link-hover: #64d2ff;
+  --accent: #0a84ff;
+  --meta: #a1a1a6;
+  --muted: #8e8e93;
+  --hairline: rgba(84, 84, 88, 0.65);
 }
 
 html.projects-scroll {
@@ -49,7 +49,7 @@ html.projects-scroll::-webkit-scrollbar {
   right: 2px;
   width: 5px;
   border-radius: 2px;
-  background: rgba(255, 255, 255, 0.55);
+  background: rgba(235, 235, 245, 0.6);
   opacity: 0;
   transition: opacity 180ms ease;
 }
@@ -258,6 +258,14 @@ a:hover {
 
 .projects-view .fill-description {
   color: #ffffff;
+}
+
+@media (prefers-contrast: more) {
+  .projects-view {
+    --meta: #f2f2f7;
+    --muted: #d1d1d6;
+    --hairline: #8e8e93;
+  }
 }
 
 @media (max-width: 768px) {
