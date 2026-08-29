@@ -33,6 +33,8 @@ const StarryNight: React.FC = () => {
     const reducedMotion = window.matchMedia(
       "(prefers-reduced-motion: reduce)",
     ).matches;
+    const colorScheme = window.matchMedia("(prefers-color-scheme: dark)");
+    const backgroundColor = () => colorScheme.matches ? "#000000" : "#12121F";
 
     let animationFrameId = 0;
     const pixelSize = 1.5;
@@ -89,7 +91,7 @@ const StarryNight: React.FC = () => {
       if (!isAnimating) return;
 
       ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
-      ctx.fillStyle = "#000000";
+      ctx.fillStyle = backgroundColor();
       ctx.fillRect(0, 0, window.innerWidth, window.innerHeight);
 
       // Pixel stars as crisp small squares
@@ -160,7 +162,7 @@ const StarryNight: React.FC = () => {
     if (reducedMotion) {
       // Single static frame, no animation loop or shooting stars.
       ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
-      ctx.fillStyle = "#000000";
+      ctx.fillStyle = backgroundColor();
       ctx.fillRect(0, 0, window.innerWidth, window.innerHeight);
       stars.forEach((star) => {
         ctx.globalAlpha = 0.7;
