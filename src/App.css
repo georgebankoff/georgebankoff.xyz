@@ -27,6 +27,18 @@
 
 html.projects-scroll {
   scrollbar-width: none;
+  background: #12121f;
+}
+
+html.projects-scroll body {
+  background: #12121f;
+}
+
+@media (prefers-color-scheme: dark) {
+  html.projects-scroll,
+  html.projects-scroll body {
+    background: #000000;
+  }
 }
 
 html.projects-scroll::-webkit-scrollbar {
