@@ -20,12 +20,9 @@ import StarryNight from "./StarryNight";
 
 function ProjectsPage() {
   return (
-    <section className="projects-page" aria-labelledby="projects-title">
-      <h1 className="page-title" id="projects-title">
-        Projects
-      </h1>
+    <section className="projects-page" aria-label="Projects">
       <article className="project">
-        <h2 className="header">Electric Go-Kart Project</h2>
+        <h2 className="header">Electric Go-Kart</h2>
         <a
           href="https://cad.onshape.com/documents/30826ce72678de87a3030163/w/d03a12ae59ca6e45fa57a4e4/e/749916287025791471a0d653?renderMode=0&uiState=68ec21d4b94f26ff8b2c91ce"
           target="_blank"
@@ -110,7 +107,7 @@ function ProjectsPage() {
                   <div>
                     <span className="component-name">Batteries</span>
                     <span className="component-detail">
-                      SPIM08HP — 20s6p config, 72V, 48AH, 200A max continuous
+                      SPIM08HP cells, 20s6p config, 72V, 48AH, 200A max continuous
                     </span>
                   </div>
                 </div>
@@ -206,7 +203,7 @@ function ProjectsPage() {
         </div>
       </article>
       <article className="project">
-        <h2 className="header">Astrophotography Project</h2>
+        <h2 className="header">Astrophotography</h2>
         <div className="intro-block">
           <p className="intro">
             These are photos that I took as part of an Astrophotography workshop
