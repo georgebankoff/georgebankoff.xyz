@@ -1,24 +1,48 @@
 import React, { useEffect, useRef } from "react";
 import "./StarryNight.css";
 
-interface Star {
-  x: number;
-  y: number;
-  size: number;
+type StarSize = 1 | 2;
+
+interface GridPosition {
+  column: number;
+  row: number;
+}
+
+interface Star extends GridPosition {
+  size: StarSize;
   opacity: number;
   twinkleSpeed: number;
 }
 
-interface ShootingStar {
-  x: number;
-  y: number;
-  vx: number;
-  vy: number;
+interface ShootingStar extends GridPosition {
+  columnStep: number;
+  rowStep: number;
   opacity: number;
-  trail: { x: number; y: number }[];
-  trailLen: number;
-  size: number;
+  trail: GridPosition[];
+  trailLength: number;
+  size: StarSize;
 }
+
+const gridCellSize = 2;
+const staticStarCount = 200;
+const largeStarProbability = 0.2;
+const shootingStarStepMs = 40;
+const shootingStarFadePerStep = 0.035 *
+  (shootingStarStepMs / (1000 / 60));
+
+const shootingStarDirections = [
+  { columnStep: 6, rowStep: 2 },
+  { columnStep: 5, rowStep: 3 },
+  { columnStep: 4, rowStep: 4 },
+  { columnStep: 3, rowStep: 5 },
+  { columnStep: 2, rowStep: 6 },
+] as const;
+
+const randomInteger = (maxExclusive: number) =>
+  Math.floor(Math.random() * Math.max(1, maxExclusive));
+
+const randomStarSize = (): StarSize =>
+  Math.random() < largeStarProbability ? 2 : 1;
 
 const StarryNight: React.FC = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -36,151 +60,185 @@ const StarryNight: React.FC = () => {
     const colorScheme = window.matchMedia("(prefers-color-scheme: dark)");
     const backgroundColor = () => colorScheme.matches ? "#000000" : "#12121F";
 
-    let animationFrameId = 0;
-    const pixelSize = 1.5;
-
-    const resizeCanvas = () => {
-      const dpr = window.devicePixelRatio || 1;
-      canvas.width = window.innerWidth * dpr;
-      canvas.height = window.innerHeight * dpr;
-      canvas.style.width = `${window.innerWidth}px`;
-      canvas.style.height = `${window.innerHeight}px`;
-      ctx.setTransform(1, 0, 0, 1, 0, 0);
-      ctx.scale(dpr, dpr);
-    };
-
-    resizeCanvas();
-    window.addEventListener("resize", resizeCanvas);
-
     const stars: Star[] = [];
     const shootingStars: ShootingStar[] = [];
-    const numStars = 200;
+    let animationFrameId = 0;
+    let shootingStarTimeout = 0;
+    let lastShootingStarStep = 0;
     let isAnimating = false;
+    let devicePixelRatio = 1;
+    let viewportWidth = 0;
+    let viewportHeight = 0;
+    let columnCount = 0;
+    let rowCount = 0;
 
-    // Smaller pixelated square stars
-    for (let i = 0; i < numStars; i++) {
-      stars.push({
-        x: Math.floor(Math.random() * window.innerWidth),
-        y: Math.floor(Math.random() * window.innerHeight),
-        size: Math.random() * 1 + 1, // 1 to 2
-        opacity: Math.random(),
-        twinkleSpeed: (Math.random() * 0.003 + 0.0015) *
-          (Math.random() < 0.5 ? 1 : -1),
+    const generateStars = () => {
+      stars.length = 0;
+      const occupiedCells = new Set<string>();
+      let attempts = 0;
+
+      while (
+        stars.length < staticStarCount && attempts < staticStarCount * 20
+      ) {
+        attempts++;
+        const size = randomStarSize();
+        const column = randomInteger(columnCount - size + 1);
+        const row = randomInteger(rowCount - size + 1);
+        const starCells: string[] = [];
+
+        for (let columnOffset = 0; columnOffset < size; columnOffset++) {
+          for (let rowOffset = 0; rowOffset < size; rowOffset++) {
+            starCells.push(`${column + columnOffset}:${row + rowOffset}`);
+          }
+        }
+
+        if (starCells.some((cell) => occupiedCells.has(cell))) continue;
+        starCells.forEach((cell) => occupiedCells.add(cell));
+
+        stars.push({
+          column,
+          row,
+          size,
+          opacity: Math.random(),
+          twinkleSpeed: (Math.random() * 0.003 + 0.0015) *
+            (Math.random() < 0.5 ? 1 : -1),
+        });
+      }
+    };
+
+    const resizeCanvas = () => {
+      devicePixelRatio = window.devicePixelRatio || 1;
+      viewportWidth = window.innerWidth;
+      viewportHeight = window.innerHeight;
+      columnCount = Math.ceil(viewportWidth / gridCellSize);
+      rowCount = Math.ceil(viewportHeight / gridCellSize);
+
+      canvas.width = viewportWidth * devicePixelRatio;
+      canvas.height = viewportHeight * devicePixelRatio;
+      canvas.style.width = `${viewportWidth}px`;
+      canvas.style.height = `${viewportHeight}px`;
+      ctx.setTransform(1, 0, 0, 1, 0, 0);
+      ctx.scale(devicePixelRatio, devicePixelRatio);
+
+      generateStars();
+      shootingStars.length = 0;
+    };
+
+    const drawStar = (star: GridPosition & { size: StarSize }) => {
+      ctx.fillRect(
+        star.column * gridCellSize,
+        star.row * gridCellSize,
+        star.size * gridCellSize,
+        star.size * gridCellSize,
+      );
+    };
+
+    const drawBackground = () => {
+      ctx.clearRect(0, 0, viewportWidth, viewportHeight);
+      ctx.fillStyle = backgroundColor();
+      ctx.fillRect(0, 0, viewportWidth, viewportHeight);
+    };
+
+    const drawStaticStars = (updateTwinkle: boolean) => {
+      ctx.fillStyle = "#f5f5f7";
+
+      stars.forEach((star) => {
+        if (updateTwinkle) {
+          star.opacity += star.twinkleSpeed;
+          if (star.opacity > 0.8) {
+            star.opacity = 0.8;
+            star.twinkleSpeed *= -1;
+          } else if (star.opacity < 0.3) {
+            star.opacity = 0.3;
+            star.twinkleSpeed *= -1;
+          }
+        }
+
+        ctx.globalAlpha = updateTwinkle ? star.opacity : 0.7;
+        drawStar(star);
       });
-    }
+
+      ctx.globalAlpha = 1;
+    };
 
     const createShootingStar = () => {
-      const startX = Math.floor(Math.random() * window.innerWidth);
-      const startY = Math.floor((Math.random() * window.innerHeight) / 2);
-      const speed = Math.random() * 3 + 4;
-      const trailLen = Math.floor(Math.random() * 8) + 8;
-      const angle = Math.random() * (Math.PI / 3) + Math.PI / 12; // between 15°-75°
+      const direction = shootingStarDirections[
+        randomInteger(shootingStarDirections.length)
+      ];
+      const size = randomStarSize();
+
       shootingStars.push({
-        x: startX,
-        y: startY,
-        vx: speed * Math.cos(angle),
-        vy: speed * Math.sin(angle),
+        column: randomInteger(columnCount - size + 1),
+        row: randomInteger(Math.ceil(rowCount / 2)),
+        columnStep: direction.columnStep,
+        rowStep: direction.rowStep,
         opacity: 1,
         trail: [],
-        trailLen: trailLen,
-        size: Math.random() * 1 + 1.5, // Make the shooting star dot a bit bigger
+        trailLength: randomInteger(4) + 4,
+        size,
       });
     };
 
-    const draw = () => {
-      if (!isAnimating) return;
+    const stepShootingStars = () => {
+      for (let index = shootingStars.length - 1; index >= 0; index--) {
+        const star = shootingStars[index];
 
-      ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
-      ctx.fillStyle = backgroundColor();
-      ctx.fillRect(0, 0, window.innerWidth, window.innerHeight);
+        star.trail.unshift({ column: star.column, row: star.row });
+        if (star.trail.length > star.trailLength) star.trail.pop();
 
-      // Pixel stars as crisp small squares
-      stars.forEach((star) => {
-        star.opacity += star.twinkleSpeed;
-        if (star.opacity > 0.8) {
-          star.opacity = 0.8;
-          star.twinkleSpeed *= -1;
-        } else if (star.opacity < 0.3) {
-          star.opacity = 0.3;
-          star.twinkleSpeed *= -1;
+        star.column += star.columnStep;
+        star.row += star.rowStep;
+
+        if (star.trail.length === star.trailLength) {
+          star.opacity -= shootingStarFadePerStep;
         }
-        ctx.globalAlpha = star.opacity;
-        ctx.fillStyle = "#f5f5f7";
-        ctx.fillRect(
-          star.x,
-          star.y,
-          star.size * pixelSize,
-          star.size * pixelSize,
-        );
-        ctx.globalAlpha = 1;
-      });
-
-      for (let i = shootingStars.length - 1; i >= 0; i--) {
-        const star = shootingStars[i];
-        star.trail.unshift({ x: star.x, y: star.y });
-        if (star.trail.length > star.trailLen) star.trail.pop();
-
-        star.x += star.vx;
-        star.y += star.vy;
-
-        if (star.trail.length === star.trailLen) star.opacity -= 0.035;
-
-        for (let t = star.trail.length - 1; t >= 0; t--) {
-          const fade = Math.max(0, star.opacity * (t / star.trailLen));
-          ctx.globalAlpha = fade;
-          ctx.fillStyle = "#f5f5f7";
-          ctx.fillRect(
-            star.trail[t].x,
-            star.trail[t].y,
-            star.size * pixelSize,
-            star.size * pixelSize,
-          );
-        }
-
-        ctx.globalAlpha = Math.max(0, star.opacity);
-        ctx.fillStyle = "#f5f5f7";
-        ctx.fillRect(
-          star.x,
-          star.y,
-          star.size * pixelSize,
-          star.size * pixelSize,
-        );
-        ctx.globalAlpha = 1;
 
         if (
           star.opacity <= 0 ||
-          star.x > window.innerWidth + 10 ||
-          star.y > window.innerHeight + 10
+          star.column > columnCount + star.columnStep ||
+          star.row > rowCount + star.rowStep
         ) {
-          shootingStars.splice(i, 1);
+          shootingStars.splice(index, 1);
         }
       }
-
-      animationFrameId = requestAnimationFrame(draw);
     };
 
-    if (reducedMotion) {
-      // Single static frame, no animation loop or shooting stars.
-      ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
-      ctx.fillStyle = backgroundColor();
-      ctx.fillRect(0, 0, window.innerWidth, window.innerHeight);
-      stars.forEach((star) => {
-        ctx.globalAlpha = 0.7;
-        ctx.fillStyle = "#f5f5f7";
-        ctx.fillRect(
-          star.x,
-          star.y,
-          star.size * pixelSize,
-          star.size * pixelSize,
-        );
-        ctx.globalAlpha = 1;
-      });
-      return () => {
-        window.removeEventListener("resize", resizeCanvas);
-      };
-    }
+    const drawShootingStars = () => {
+      ctx.fillStyle = "#f5f5f7";
 
-    let shootingStarTimeout = 0;
+      shootingStars.forEach((star) => {
+        star.trail.forEach((position, index) => {
+          const trailProgress = 1 - (index + 1) / (star.trail.length + 1);
+          ctx.globalAlpha = Math.max(0, star.opacity * trailProgress);
+          drawStar({ ...position, size: star.size });
+        });
+
+        ctx.globalAlpha = Math.max(0, star.opacity);
+        drawStar(star);
+      });
+
+      ctx.globalAlpha = 1;
+    };
+
+    const draw = (timestamp: number) => {
+      if (!isAnimating) return;
+
+      if (timestamp - lastShootingStarStep >= shootingStarStepMs) {
+        stepShootingStars();
+        lastShootingStarStep = timestamp;
+      }
+
+      drawBackground();
+      drawStaticStars(true);
+      drawShootingStars();
+      animationFrameId = window.requestAnimationFrame(draw);
+    };
+
+    const drawReducedMotionFrame = () => {
+      drawBackground();
+      drawStaticStars(false);
+    };
+
     const scheduleShootingStar = () => {
       if (!isAnimating || document.hidden) return;
 
@@ -195,8 +253,8 @@ const StarryNight: React.FC = () => {
 
     const stopAnimation = () => {
       isAnimating = false;
-      cancelAnimationFrame(animationFrameId);
-      clearTimeout(shootingStarTimeout);
+      window.cancelAnimationFrame(animationFrameId);
+      window.clearTimeout(shootingStarTimeout);
       shootingStars.length = 0;
     };
 
@@ -204,7 +262,8 @@ const StarryNight: React.FC = () => {
       if (isAnimating || document.hidden) return;
 
       isAnimating = true;
-      draw();
+      lastShootingStarStep = performance.now();
+      animationFrameId = window.requestAnimationFrame(draw);
       scheduleShootingStar();
     };
 
@@ -218,12 +277,30 @@ const StarryNight: React.FC = () => {
       startAnimation();
     };
 
+    const handleResize = () => {
+      resizeCanvas();
+      if (reducedMotion) drawReducedMotionFrame();
+    };
+
+    resizeCanvas();
+    window.addEventListener("resize", handleResize);
+
+    if (reducedMotion) {
+      drawReducedMotionFrame();
+      colorScheme.addEventListener("change", drawReducedMotionFrame);
+
+      return () => {
+        colorScheme.removeEventListener("change", drawReducedMotionFrame);
+        window.removeEventListener("resize", handleResize);
+      };
+    }
+
     document.addEventListener("visibilitychange", handleVisibilityChange);
     startAnimation();
 
     return () => {
       document.removeEventListener("visibilitychange", handleVisibilityChange);
-      window.removeEventListener("resize", resizeCanvas);
+      window.removeEventListener("resize", handleResize);
       stopAnimation();
     };
   }, []);
