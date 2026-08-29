@@ -1,88 +1,84 @@
 .components-panel {
-    max-width: 35rem;
-    width: 90%;
-    box-sizing: border-box;
-    margin-top: 0.5rem;
-    border: 2px solid rgba(255, 255, 255, 0.15);
-    background: rgba(255, 255, 255, 0.03);
-    padding: 1.5rem 2rem 2rem;
-    text-align: left;
-    position: relative;
+  width: 100%;
+  margin: 38px 0;
+  padding: 38px 0;
+  border-top: 1px solid var(--hairline);
+  border-bottom: 1px solid var(--hairline);
 }
 
-.components-panel::before {
-    content: "";
-    position: absolute;
-    inset: -1px;
-    border: 1px solid rgba(255, 255, 255, 0.06);
-    pointer-events: none;
+.components-panel + .intro {
+  margin-top: 37px;
 }
 
 .components-title {
-    font-family: "Jersey 10", sans-serif;
-    font-size: 1.6rem;
-    text-align: center;
-    letter-spacing: 0.3rem;
-    color: white;
-    margin: 0 0 1.25rem 0;
-    font-weight: normal;
+  margin: 0 0 22px;
+  color: var(--heading);
+  font-family: "cofo-sans-pixel", sans-serif;
+  font-size: 1.2rem;
+  font-weight: 600;
+  letter-spacing: 0;
+  text-align: left;
 }
 
 .components-grid {
-    display: flex;
-    flex-direction: column;
-    gap: 1.25rem;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 28px 32px;
 }
 
 .component-category {
-    display: flex;
-    flex-direction: column;
-    gap: 0.4rem;
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: 7px;
 }
 
 .category-label {
-    font-family: "Jersey 10", sans-serif;
-    font-size: 1.15rem;
-    color: white;
-    letter-spacing: 0.15rem;
-    padding-bottom: 0.3rem;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-    margin-bottom: 0.15rem;
+  margin-bottom: 3px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid var(--hairline);
+  color: var(--heading);
+  font-family: "cofo-sans-pixel", sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0;
 }
 
 .component-item {
-    display: flex;
-    align-items: flex-start;
-    gap: 0.75rem;
-    padding: 0.35rem 0.5rem;
-    border-radius: 0;
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  padding: 3px 0;
 }
 
 .pixel-bullet {
-    display: inline-block;
-    width: 6px;
-    height: 6px;
-    min-width: 6px;
-    background: white;
-    margin-top: 0.55rem;
-    image-rendering: pixelated;
-    box-shadow: 0 0 3px rgba(255, 255, 255, 0.15);
+  width: 5px;
+  height: 5px;
+  flex: 0 0 5px;
+  margin-top: 0.55rem;
+  background: var(--accent);
 }
 
 .component-name {
-    font-family: "IBM Plex Sans", sans-serif;
-    font-weight: 600;
-    font-size: 1.05rem;
-    color: white;
-    display: block;
-    line-height: 1.4;
+  display: block;
+  color: var(--text);
+  font-family: "cofo-sans-pixel", sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  line-height: 1.4;
 }
 
 .component-detail {
-    font-family: "IBM Plex Sans", sans-serif;
-    font-weight: 300;
-    font-size: 0.9rem;
-    color: rgba(255, 255, 255, 0.5);
-    display: block;
-    line-height: 1.4;
+  display: block;
+  color: var(--meta);
+  font-family: "cofo-sans-pixel", sans-serif;
+  font-size: 0.82rem;
+  font-weight: 400;
+  line-height: 1.45;
+}
+
+@media (max-width: 580px) {
+  .components-grid {
+    grid-template-columns: 1fr;
+  }
 }

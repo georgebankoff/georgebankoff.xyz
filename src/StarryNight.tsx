@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import "./StarryNight.css";
 
 interface Star {
@@ -34,7 +34,7 @@ const StarryNight: React.FC = () => {
       "(prefers-reduced-motion: reduce)",
     ).matches;
 
-    let animationFrameId: number;
+    let animationFrameId = 0;
     const pixelSize = 1.5;
 
     const resizeCanvas = () => {
@@ -53,6 +53,7 @@ const StarryNight: React.FC = () => {
     const stars: Star[] = [];
     const shootingStars: ShootingStar[] = [];
     const numStars = 200;
+    let isAnimating = false;
 
     // Smaller pixelated square stars
     for (let i = 0; i < numStars; i++) {
@@ -61,8 +62,8 @@ const StarryNight: React.FC = () => {
         y: Math.floor(Math.random() * window.innerHeight),
         size: Math.random() * 1 + 1, // 1 to 2
         opacity: Math.random(),
-        twinkleSpeed:
-          (Math.random() * 0.003 + 0.0015) * (Math.random() < 0.5 ? 1 : -1),
+        twinkleSpeed: (Math.random() * 0.003 + 0.0015) *
+          (Math.random() < 0.5 ? 1 : -1),
       });
     }
 
@@ -85,6 +86,8 @@ const StarryNight: React.FC = () => {
     };
 
     const draw = () => {
+      if (!isAnimating) return;
+
       ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
       ctx.fillStyle = "#12121F";
       ctx.fillRect(0, 0, window.innerWidth, window.innerHeight);
@@ -175,22 +178,51 @@ const StarryNight: React.FC = () => {
       };
     }
 
-    draw();
-
-    let shootingStarTimeout: number;
+    let shootingStarTimeout = 0;
     const scheduleShootingStar = () => {
+      if (!isAnimating || document.hidden) return;
+
       const delay = 4500 + Math.random() * 5500;
       shootingStarTimeout = window.setTimeout(() => {
+        if (!isAnimating || document.hidden) return;
+
         createShootingStar();
         scheduleShootingStar();
       }, delay);
     };
-    scheduleShootingStar();
 
-    return () => {
-      window.removeEventListener("resize", resizeCanvas);
+    const stopAnimation = () => {
+      isAnimating = false;
       cancelAnimationFrame(animationFrameId);
       clearTimeout(shootingStarTimeout);
+      shootingStars.length = 0;
+    };
+
+    const startAnimation = () => {
+      if (isAnimating || document.hidden) return;
+
+      isAnimating = true;
+      draw();
+      scheduleShootingStar();
+    };
+
+    const handleVisibilityChange = () => {
+      if (document.hidden) {
+        stopAnimation();
+        return;
+      }
+
+      resizeCanvas();
+      startAnimation();
+    };
+
+    document.addEventListener("visibilitychange", handleVisibilityChange);
+    startAnimation();
+
+    return () => {
+      document.removeEventListener("visibilitychange", handleVisibilityChange);
+      window.removeEventListener("resize", resizeCanvas);
+      stopAnimation();
     };
   }, []);
 
