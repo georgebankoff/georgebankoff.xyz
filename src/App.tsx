@@ -423,6 +423,7 @@ export function HomePage() {
                 src="/linkedin.jpeg"
                 className="profile-photo"
                 alt="George Bankoff"
+                draggable={false}
               />
               <div className="bio-content">
                 <p>
