@@ -11,6 +11,7 @@ interface GridPosition {
 interface Star extends GridPosition {
   size: StarSize;
   opacity: number;
+  revealDelay: number;
   twinkleSpeed: number;
 }
 
@@ -25,6 +26,7 @@ interface ShootingStar extends GridPosition {
 
 const gridCellSize = 2;
 const staticStarCount = 200;
+const staticStarRevealDuration = 1800;
 const largeStarProbability = 0.2;
 const shootingStarStepMs = 40;
 const shootingStarFadePerStep = 0.035 *
@@ -62,6 +64,7 @@ const StarryNight: React.FC = () => {
 
     const stars: Star[] = [];
     const shootingStars: ShootingStar[] = [];
+    const starRevealStartedAt = performance.now();
     let animationFrameId = 0;
     let shootingStarTimeout = 0;
     let lastShootingStarStep = 0;
@@ -100,6 +103,7 @@ const StarryNight: React.FC = () => {
           row,
           size,
           opacity: Math.random(),
+          revealDelay: Math.random() * staticStarRevealDuration,
           twinkleSpeed: (Math.random() * 0.003 + 0.0015) *
             (Math.random() < 0.5 ? 1 : -1),
         });
@@ -107,6 +111,8 @@ const StarryNight: React.FC = () => {
     };
 
     const resizeCanvas = () => {
+      const previousColumnCount = columnCount;
+      const previousRowCount = rowCount;
       devicePixelRatio = window.devicePixelRatio || 1;
       viewportWidth = window.innerWidth;
       viewportHeight = window.innerHeight;
@@ -120,7 +126,13 @@ const StarryNight: React.FC = () => {
       ctx.setTransform(1, 0, 0, 1, 0, 0);
       ctx.scale(devicePixelRatio, devicePixelRatio);
 
-      generateStars();
+      if (
+        stars.length === 0 ||
+        columnCount !== previousColumnCount ||
+        rowCount !== previousRowCount
+      ) {
+        generateStars();
+      }
       shootingStars.length = 0;
     };
 
@@ -139,11 +151,18 @@ const StarryNight: React.FC = () => {
       ctx.fillRect(0, 0, viewportWidth, viewportHeight);
     };
 
-    const drawStaticStars = (updateTwinkle: boolean) => {
+    const drawStaticStars = (timestamp: number | null) => {
       ctx.fillStyle = "#f5f5f7";
 
       stars.forEach((star) => {
-        if (updateTwinkle) {
+        if (
+          timestamp !== null &&
+          timestamp - starRevealStartedAt < star.revealDelay
+        ) {
+          return;
+        }
+
+        if (timestamp !== null) {
           star.opacity += star.twinkleSpeed;
           if (star.opacity > 0.8) {
             star.opacity = 0.8;
@@ -154,7 +173,7 @@ const StarryNight: React.FC = () => {
           }
         }
 
-        ctx.globalAlpha = updateTwinkle ? star.opacity : 0.7;
+        ctx.globalAlpha = timestamp === null ? 0.7 : star.opacity;
         drawStar(star);
       });
 
@@ -229,14 +248,14 @@ const StarryNight: React.FC = () => {
       }
 
       drawBackground();
-      drawStaticStars(true);
+      drawStaticStars(timestamp);
       drawShootingStars();
       animationFrameId = window.requestAnimationFrame(draw);
     };
 
     const drawReducedMotionFrame = () => {
       drawBackground();
-      drawStaticStars(false);
+      drawStaticStars(null);
     };
 
     const scheduleShootingStar = () => {
