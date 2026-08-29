@@ -99,17 +99,27 @@ html.projects-scroll::-webkit-scrollbar {
   color: var(--text);
 }
 
+.site-nav .nav-name:hover,
+.site-nav .nav-link:hover {
+  color: var(--link);
+}
+
 .site-nav button:focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 5px;
 }
 
 .site-nav .nav-link[aria-current="page"] {
-  color: var(--text);
+  color: var(--meta);
   text-decoration: underline;
-  text-decoration-color: #ffffff;
+  text-decoration-color: var(--meta);
   text-decoration-thickness: 2px;
   text-underline-offset: 5px;
+}
+
+.site-nav .nav-link[aria-current="page"]:hover {
+  color: var(--link);
+  text-decoration-color: var(--link);
 }
 
 .site-nav .nav-name {
