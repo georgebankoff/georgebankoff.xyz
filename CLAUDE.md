@@ -26,14 +26,14 @@ Single-page personal site. React 18 + TypeScript, bundled with Vite, run under D
 
 **App shape:**
 - Entry: `src/main.tsx` mounts `<App />` inside `<BrowserRouter>`. No routes are defined — the router is currently unused.
-- `src/App.tsx` exports `HomePage` (also as default). It is one large monolithic component containing every section of the site (Go-Kart project, Astrophotography gallery, About).
-- `src/StarryNight.tsx` is a self-contained canvas animation rendered as a fixed background. It manages its own `requestAnimationFrame` loop, DPR scaling, and a `setInterval` for spawning shooting stars. State lives in plain arrays inside `useEffect`, not in React state.
+- `src/App.tsx` exports `HomePage` (also as default). Local view state switches between the portrait-led home view and a `ProjectsPage` containing the Go-Kart and Astrophotography sections.
+- `src/StarryNight.tsx` is a self-contained canvas animation rendered only in the Projects view. It manages its own `requestAnimationFrame` loop, DPR scaling, and a `setInterval` for spawning shooting stars. State lives in plain arrays inside `useEffect`, not in React state.
 - `src/Rainbow.tsx`, `src/Rainbow.css`, `src/useRainbow.ts`, `src/ComponentsList.tsx` are empty placeholder files. `App.tsx` does still import `./ComponentsList.css`, which is a real stylesheet — the components-grid layout in `App.tsx` depends on it.
 
 **Styling:**
-- Global resets and `:root` font/color in `src/index.css`. It also imports two Google Font families (Crimson Pro, Rubik) that aren't actually used in the markup; the rendered fonts (IBM Plex Sans, Jacquarda Bastarda 9, Jersey 10) are loaded via `<link>` in `index.html`.
+- Global resets and `:root` font/color live in `src/index.css`. Jersey 10 is loaded from Google Fonts; Argent Pixel CF and CoFo Sans Pixel are loaded from an Adobe Fonts dynamic kit. The font embeds live in `index.html`.
 - Page-specific styles in `src/App.css`; `src/StarryNight.css` is just the fixed-canvas positioning.
-- Mobile breakpoint is `max-width: 580px` only.
+- Responsive layout changes occur at `768px`, `580px`, and `480px`.
 
 **Static assets:** everything under `public/` (images, favicons, logos) is served from the site root.
 
