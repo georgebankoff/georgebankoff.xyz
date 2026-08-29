@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 700">
+  <style>
+  path {
+    fill: #000;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    path {
+      fill: #fff;
+    }
+  }
+  </style>
+  <title>George Bankoff</title>
+  <path
+    transform="translate(0 700)"
+    d="M500-550v50h50v-200h-50v50h-50v-50H250v50h150v50h50v50Zm-350 450v50h100v-50h-50v-100h-50v-300h50v-100h50v-50H150v50h-50v100H50v300h50v100Zm400-400v50h50v-50Zm-100 400v50h150v-250h50v-50H400v50h100v200ZM250 0h200v-50H250Zm350-50V0h50v-50Z"
+  />
+</svg>
