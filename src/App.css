@@ -78,6 +78,8 @@ html.projects-scroll::-webkit-scrollbar {
   font: inherit;
   letter-spacing: 0;
   cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
 }
 
 .site-nav button:hover,
@@ -127,6 +129,9 @@ html.projects-scroll::-webkit-scrollbar {
   border-radius: 0;
   object-fit: cover;
   object-position: center 35%;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-user-drag: none;
 }
 
 .bio-content {
