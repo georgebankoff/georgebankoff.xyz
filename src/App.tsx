@@ -35,6 +35,8 @@ function ProjectsPage() {
             src="/onshape-logo-RGB_KO.svg"
             alt=""
             className="onshape-icon"
+            width={1324}
+            height={299}
             draggable={false}
             aria-hidden="true"
           />
@@ -45,11 +47,15 @@ function ProjectsPage() {
               src="/chassis.png"
               alt="Go-kart chassis"
               className="image chassis-image"
+              width={5095}
+              height={3296}
             />
             <img
               src="/assembly.png"
               alt="Go-kart assembly"
               className="image assembly-image"
+              width={5095}
+              height={3296}
             />
           </div>
         </div>
@@ -219,6 +225,8 @@ function ProjectsPage() {
             src="/dipper-trail.jpg"
             className="image"
             alt="Composite star trail photo showing Ursa Major and stars rotating around Polaris"
+            width={4000}
+            height={2667}
           >
           </img>
           <p className="fill-description">
@@ -236,6 +244,8 @@ function ProjectsPage() {
             src="/moon.jpg"
             className="image"
             alt="The Moon rising near Jupiter and the Pleiades, captured with a fisheye lens at 30 seconds"
+            width={4000}
+            height={2667}
           >
           </img>
           <p className="fill-description">
@@ -249,6 +259,8 @@ function ProjectsPage() {
             src="/moon-trail.jpg"
             className="image"
             alt="Composite star trail photo showing the Moon rising over a few hours, with concentric trails warped by a fisheye lens"
+            width={4000}
+            height={2667}
           >
           </img>
           <p className="fill-description">
@@ -271,6 +283,8 @@ function ProjectsPage() {
             src="/long.jpg"
             className="image"
             alt="Single 30-minute exposure of the night sky with Polaris framed off-center near the top"
+            width={4000}
+            height={2250}
           >
           </img>
           <p className="fill-description">
@@ -286,6 +300,8 @@ function ProjectsPage() {
             src="/eddie-exposed.jpg"
             className="image"
             alt="Light-painted self portrait with a flashlight-drawn outline of a dog in front of the Milky Way, 30-second exposure"
+            width={3840}
+            height={5760}
           >
           </img>
           <p className="fill-description">
@@ -420,6 +436,8 @@ export function HomePage() {
                 src="/linkedin.jpeg"
                 className="profile-photo"
                 alt="George Bankoff"
+                width={1264}
+                height={843}
                 draggable={false}
               />
               <div className="bio-content">
