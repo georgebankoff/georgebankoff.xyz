@@ -163,6 +163,7 @@ html.projects-scroll::-webkit-scrollbar {
 .bio-content p {
   margin: 0;
   font-size: 1rem;
+  line-height: 30px;
 }
 
 .bio-content .email {
@@ -236,7 +237,7 @@ a:hover {
   color: var(--text);
   font-family: "cofo-sans-pixel", sans-serif;
   font-size: 1rem;
-  line-height: 1.65;
+  line-height: 30px;
   text-align: left;
 }
 
@@ -269,7 +270,7 @@ a:hover {
   color: var(--meta);
   font-family: "cofo-sans-pixel", sans-serif;
   font-size: 0.9rem;
-  line-height: 1.55;
+  line-height: 26px;
   text-align: left;
 }
 
@@ -331,5 +332,17 @@ a:hover {
 
   .site-header {
     margin-bottom: 40px;
+  }
+
+  .intro {
+    line-height: 28px;
+  }
+
+  .bio-content p {
+    line-height: 28px;
+  }
+
+  .fill-description {
+    line-height: 24px;
   }
 }
