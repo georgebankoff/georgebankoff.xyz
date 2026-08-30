@@ -201,24 +201,28 @@ a:hover {
 .onshape-link {
   display: inline-block;
   margin-bottom: 24px;
-  transition: opacity 150ms ease;
   user-select: none;
   -webkit-user-select: none;
   -webkit-user-drag: none;
-}
-
-.onshape-link:hover {
-  opacity: 0.72;
 }
 
 .onshape-icon {
   display: block;
   width: 116px;
-  height: auto;
+  aspect-ratio: 1324 / 299;
+  background-color: var(--heading);
+  -webkit-mask: url("/onshape-logo-RGB_KO.svg") center / contain no-repeat;
+  mask: url("/onshape-logo-RGB_KO.svg") center / contain no-repeat;
+  transition: background-color 150ms ease;
   pointer-events: none;
   user-select: none;
   -webkit-user-select: none;
   -webkit-user-drag: none;
+}
+
+.onshape-link:hover .onshape-icon,
+.onshape-link:focus-visible .onshape-icon {
+  background-color: var(--link);
 }
 
 .intro-block {

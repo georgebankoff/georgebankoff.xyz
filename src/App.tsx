@@ -31,13 +31,8 @@ function ProjectsPage() {
           title="View 3D CAD model on Onshape"
           aria-label="View the go-kart CAD model on Onshape"
         >
-          <img
-            src="/onshape-logo-RGB_KO.svg"
-            alt=""
+          <span
             className="onshape-icon"
-            width={1324}
-            height={299}
-            draggable={false}
             aria-hidden="true"
           />
         </a>
