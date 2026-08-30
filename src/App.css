@@ -94,14 +94,8 @@ html.projects-scroll::-webkit-scrollbar {
   -webkit-user-select: none;
 }
 
-.site-nav button:hover,
 .site-nav button:focus-visible {
   color: var(--text);
-}
-
-.site-nav .nav-name:hover,
-.site-nav .nav-link:hover {
-  color: var(--link);
 }
 
 .site-nav button:focus-visible {
@@ -117,9 +111,15 @@ html.projects-scroll::-webkit-scrollbar {
   text-underline-offset: 5px;
 }
 
-.site-nav .nav-link[aria-current="page"]:hover {
-  color: var(--link);
-  text-decoration-color: var(--link);
+@media (hover: hover) and (pointer: fine) {
+  .site-nav .nav-name:hover,
+  .site-nav .nav-link:hover {
+    color: var(--link);
+  }
+
+  .site-nav .nav-link[aria-current="page"]:hover {
+    text-decoration-color: var(--link);
+  }
 }
 
 .site-nav .nav-name {

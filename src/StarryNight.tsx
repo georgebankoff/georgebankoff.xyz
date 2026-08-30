@@ -74,14 +74,18 @@ const StarryNight: React.FC = () => {
     let viewportHeight = 0;
     let columnCount = 0;
     let rowCount = 0;
+    let visibleRowCount = 0;
 
     const generateStars = () => {
       stars.length = 0;
       const occupiedCells = new Set<string>();
+      const targetStarCount = Math.ceil(
+        staticStarCount * rowCount / Math.max(1, visibleRowCount),
+      );
       let attempts = 0;
 
       while (
-        stars.length < staticStarCount && attempts < staticStarCount * 20
+        stars.length < targetStarCount && attempts < targetStarCount * 20
       ) {
         attempts++;
         const size = randomStarSize();
@@ -111,13 +115,33 @@ const StarryNight: React.FC = () => {
     };
 
     const resizeCanvas = () => {
+      const nextDevicePixelRatio = window.devicePixelRatio || 1;
+      const nextViewportWidth = window.innerWidth;
+      const nextViewportHeight = Math.max(
+        window.innerHeight,
+        window.screen.height,
+      );
+      const nextColumnCount = Math.ceil(nextViewportWidth / gridCellSize);
+      const nextRowCount = Math.ceil(nextViewportHeight / gridCellSize);
+
+      visibleRowCount = Math.ceil(window.innerHeight / gridCellSize);
+
+      if (
+        stars.length > 0 &&
+        nextDevicePixelRatio === devicePixelRatio &&
+        nextViewportWidth === viewportWidth &&
+        nextViewportHeight === viewportHeight
+      ) {
+        return;
+      }
+
       const previousColumnCount = columnCount;
       const previousRowCount = rowCount;
-      devicePixelRatio = window.devicePixelRatio || 1;
-      viewportWidth = window.innerWidth;
-      viewportHeight = window.innerHeight;
-      columnCount = Math.ceil(viewportWidth / gridCellSize);
-      rowCount = Math.ceil(viewportHeight / gridCellSize);
+      devicePixelRatio = nextDevicePixelRatio;
+      viewportWidth = nextViewportWidth;
+      viewportHeight = nextViewportHeight;
+      columnCount = nextColumnCount;
+      rowCount = nextRowCount;
 
       canvas.width = viewportWidth * devicePixelRatio;
       canvas.height = viewportHeight * devicePixelRatio;
@@ -188,7 +212,7 @@ const StarryNight: React.FC = () => {
 
       shootingStars.push({
         column: randomInteger(columnCount - size + 1),
-        row: randomInteger(Math.ceil(rowCount / 2)),
+        row: randomInteger(Math.ceil(visibleRowCount / 2)),
         columnStep: direction.columnStep,
         rowStep: direction.rowStep,
         opacity: 1,
@@ -215,7 +239,7 @@ const StarryNight: React.FC = () => {
         if (
           star.opacity <= 0 ||
           star.column > columnCount + star.columnStep ||
-          star.row > rowCount + star.rowStep
+          star.row > visibleRowCount + star.rowStep
         ) {
           shootingStars.splice(index, 1);
         }
