@@ -52,11 +52,11 @@ function ProjectsPage() {
         </div>
         <figure className="fill safespread-figure">
           <img
-            src="/safespread/prototype.webp"
+            src="/safespread/prototype-background.png"
             alt="SafeSpread prototype with a mounted iPhone, brine reservoir, electronics enclosure, and rear spray bar on an RC chassis"
             className="image"
-            width={1440}
-            height={1088}
+            width={1443}
+            height={1090}
           />
           <figcaption className="fill-description">
             The assembled prototype, with a 3D-printed phone mount and a custom
