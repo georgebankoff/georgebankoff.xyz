@@ -44,11 +44,10 @@ function ProjectsPage() {
         </div>
         <div className="intro-block">
           <p className="intro">
-            I built SafeSpread with Mark Ghiu, Mithun Rameshkumar, and Khai
-            Lockwood for ENGS 21 at Dartmouth in summer 2026. It’s a small rover
-            designed to apply liquid brine before a freeze, helping keep ice
-            from bonding to a driveway. We wanted to make preventative treatment
-            easier for elderly homeowners and people with limited mobility.
+            SafeSpread is an autonomous rover designed for spreading de-icing solution on private driveways, patios, and sidewalks. I built it for my ENGS 21 project at Dartmouth alongside Mark Ghiu, Mithun Rameshkumar, and Khai
+            Lockwood. It uses the same technique already performed on public roads to keep ice
+            from bonding to the ground but enables people to use it on smaller, private surfaces. We originally wanted to make preventative treatment
+            easier for elderly homeowners and people with limited mobility, and it evolved into SafeSpread.
           </p>
         </div>
         <figure className="fill safespread-figure">
