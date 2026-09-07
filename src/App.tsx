@@ -56,8 +56,8 @@ function ProjectsPage({ openDesign }: { openDesign: boolean }) {
             src="/safespread/prototype-background.png"
             alt="SafeSpread prototype with a mounted iPhone, brine reservoir, electronics enclosure, and rear spray bar on an RC chassis"
             className="image"
-            width={1443}
-            height={1090}
+            width={1139}
+            height={797}
           />
           <figcaption className="fill-description">
             An iPhone supplies position and heading; the RC chassis carries the
