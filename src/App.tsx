@@ -19,7 +19,7 @@ import StarryNight from "./StarryNight";
 //   );
 // }
 
-function ProjectsPage() {
+function ProjectsPage({ openDesign }: { openDesign: boolean }) {
   return (
     <section className="projects-page" aria-label="Projects">
       <article className="project safespread-project">
@@ -95,7 +95,7 @@ function ProjectsPage() {
             detect obstacles.
           </p>
         </div>
-        <details className="safespread-notes">
+        <details className="safespread-notes" open={openDesign}>
           <summary>
             <svg className="pixel-disclosure" viewBox="0 0 7 7" aria-hidden="true" focusable="false">
               <path d="M1 0H2V1H3V2H4V3H5V4H4V5H3V6H2V7H1Z" />
@@ -162,17 +162,21 @@ function ProjectsPage() {
                     <a href="/safespread/prototype-test.mp4">Watch the prototype test.</a>
                   </video>
                   <figcaption id="safespread-video-caption" className="fill-description">
-                    An early chassis test using a drill battery. Silent video.
+                    An early driving test, before we fixed the suspension.
+                    Silent video.
                   </figcaption>
                 </figure>
                 <div>
                   <p className="intro">
-                    The empty deck drove well, but adding a full tank made the
-                    suspension sag and the chassis sway. We measured the springs
-                    and printed inserts to stiffen them. Early driving tests
-                    used a salvaged drill battery while we assembled the control
-                    electronics and separate power supplies for the drivetrain
-                    and fluid system.
+                    In the video, the rover leans to one side as it drives
+                    because the RC car’s suspension was too weak for the added
+                    load. We fixed this by 3D-printing four cylinders to fill
+                    the gaps in the shocks and prevent them from compressing.
+                  </p>
+                  <p className="intro">
+                    These early driving tests used a salvaged drill battery
+                    while we assembled the control electronics and separate
+                    power supplies for the drivetrain and fluid system.
                   </p>
                   <p className="intro">
                     We then timed the rover over 35 feet, adjusting speed and
@@ -183,6 +187,47 @@ function ProjectsPage() {
                   </p>
                 </div>
               </div>
+              <figure className="fill safespread-figure safespread-suspension">
+                <div className="safespread-suspension-photos">
+                  <a href="/safespread/shock-inserts-printing.jpeg" target="_blank" rel="noopener noreferrer">
+                    <img
+                      src="/safespread/shock-inserts-printing.jpeg"
+                      alt="Four red cylindrical shock inserts on the bed of a Prusa 3D printer"
+                      className="image"
+                      width={4284}
+                      height={5712}
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </a>
+                  <a href="/safespread/shock-insert-installed-1.jpeg" target="_blank" rel="noopener noreferrer">
+                    <img
+                      src="/safespread/shock-insert-installed-1.jpeg"
+                      alt="Close-up of a red printed cylinder installed inside an RC shock spring to block compression"
+                      className="image"
+                      width={3024}
+                      height={4032}
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </a>
+                  <a href="/safespread/shock-insert-installed-2.jpeg" target="_blank" rel="noopener noreferrer">
+                    <img
+                      src="/safespread/shock-insert-installed-2.jpeg"
+                      alt="Another view of a red printed insert filling the gap inside the shock assembly"
+                      className="image"
+                      width={3024}
+                      height={4032}
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </a>
+                </div>
+                <figcaption className="fill-description">
+                  The four cylinders on the print bed, followed by two views
+                  of the inserts fitted inside the shocks.
+                </figcaption>
+              </figure>
               <p className="intro">
                 With flow and speed measured, we could estimate how much area
                 one tank would treat. A calibrated full-tank run lasted
@@ -778,7 +823,7 @@ export function HomePage() {
               </div>
             </section>
           )
-          : <ProjectsPage />}
+          : <ProjectsPage openDesign={projectId === "safespread"} />}
       </main>
     </div>
   );
