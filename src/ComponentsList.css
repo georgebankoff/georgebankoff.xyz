@@ -7,8 +7,9 @@
   margin: 0 0 22px;
   color: var(--heading);
   font-family: "cofo-sans-pixel", sans-serif;
-  font-size: 1.2rem;
+  font-size: 22px;
   font-weight: 600;
+  line-height: 36px;
   letter-spacing: 0;
   text-align: left;
 }
@@ -32,8 +33,9 @@
   border-bottom: 1px solid var(--hairline);
   color: var(--heading);
   font-family: "cofo-sans-pixel", sans-serif;
-  font-size: 0.95rem;
+  font-size: 17px;
   font-weight: 600;
+  line-height: 28px;
   letter-spacing: 0;
 }
 
@@ -48,7 +50,7 @@
   width: 5px;
   height: 5px;
   flex: 0 0 5px;
-  margin-top: 0.55rem;
+  margin-top: 10px;
   background: var(--accent);
 }
 
@@ -56,22 +58,47 @@
   display: block;
   color: var(--text);
   font-family: "cofo-sans-pixel", sans-serif;
-  font-size: 0.95rem;
+  font-size: 17px;
   font-weight: 600;
-  line-height: 1.4;
+  line-height: 24px;
 }
 
 .component-detail {
   display: block;
   color: var(--meta);
   font-family: "cofo-sans-pixel", sans-serif;
-  font-size: 0.82rem;
+  font-size: 15px;
   font-weight: 400;
-  line-height: 1.45;
+  line-height: 21px;
 }
 
 @media (max-width: 580px) {
   .components-grid {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .components-title {
+    font-size: 20px;
+    line-height: 34px;
+  }
+
+  .category-label,
+  .component-name {
+    font-size: 16px;
+  }
+
+  .component-name {
+    line-height: 23px;
+  }
+
+  .component-detail {
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+  .pixel-bullet {
+    margin-top: 9px;
   }
 }

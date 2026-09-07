@@ -1,4 +1,5 @@
 import React from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 // import Image from "https://esm.sh/react-image-enlarger";
 import "./App.css";
 import "./ComponentsList.css";
@@ -21,8 +22,149 @@ import StarryNight from "./StarryNight";
 function ProjectsPage() {
   return (
     <section className="projects-page" aria-label="Projects">
+      <article className="project safespread-project">
+        <h2 id="safespread" className="header">SafeSpread</h2>
+        <div className="safespread-links">
+          <a
+            href="https://github.com/mith-r/safespread"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Code on GitHub{" "}
+            <svg className="pixel-external-arrow" viewBox="0 0 8 8" aria-hidden="true" focusable="false">
+              <path d="M3 0H8V5H7V2H6V3H5V4H4V5H3V6H2V7H1V8H0V7H1V6H2V5H3V4H4V3H5V2H6V1H3Z" />
+            </svg>
+          </a>
+          <a href="/safespread/assembly.png" target="_blank" rel="noopener noreferrer">
+            Assembly drawing{" "}
+            <svg className="pixel-external-arrow" viewBox="0 0 8 8" aria-hidden="true" focusable="false">
+              <path d="M3 0H8V5H7V2H6V3H5V4H4V5H3V6H2V7H1V8H0V7H1V6H2V5H3V4H4V3H5V2H6V1H3Z" />
+            </svg>
+          </a>
+        </div>
+        <div className="intro-block">
+          <p className="intro">
+            I built SafeSpread with Mark Ghiu, Mithun Rameshkumar, and Khai
+            Lockwood for ENGS 21 at Dartmouth in summer 2026. It’s a small rover
+            designed to apply liquid brine before a freeze, helping keep ice
+            from bonding to a driveway. We wanted to make preventative treatment
+            easier for elderly homeowners and people with limited mobility.
+          </p>
+        </div>
+        <figure className="fill safespread-figure">
+          <img
+            src="/safespread/prototype.webp"
+            alt="SafeSpread prototype with a mounted iPhone, brine reservoir, electronics enclosure, and rear spray bar on an RC chassis"
+            className="image"
+            width={1440}
+            height={1088}
+          />
+          <figcaption className="fill-description">
+            The assembled prototype, with a 3D-printed phone mount and a custom
+            fluid system on an RC chassis.
+          </figcaption>
+        </figure>
+        <div className="intro-block">
+          <p className="intro">
+            The first version emptied its 1.5-liter tank in just 17 seconds.
+            Adding a needle valve brought the flow down to 5.33 mL/s, enough
+            for nearly five minutes of continuous spraying. A welded aluminum
+            bar lays down parallel lines, and a shutoff valve stops the fluid
+            from draining after the pump turns off.
+          </p>
+          <p className="intro">
+            We then added autonomous navigation. An iPhone uses ARKit to
+            estimate position and heading from its camera and motion sensors,
+            sending them over Bluetooth to an ESP32-S3. Our React Native app
+            lets the operator set a rectangular treatment area; the rover
+            follows a planned route of back-and-forth passes and controls
+            steering, speed, and spraying along the way.
+          </p>
+        </div>
+        <figure className="fill safespread-figure">
+          <div className="safespread-trial">
+            <div className="safespread-trial-photos">
+              <img
+                src="/safespread/outdoor-trial-complete.webp"
+                alt="Completed outdoor trial with parallel spray passes across the taped course and the rover parked at the end"
+                className="image"
+                width={1400}
+                height={926}
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+            <a
+              className="safespread-trial-map"
+              href="/safespread/outdoor-trial-path-map.png"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img
+                src="/safespread/outdoor-trial-path-map.png"
+                alt="Phone mission map for the completed 40 × 12 ft outdoor trial: red spray passes, grey headland travel, and orange positions after relocalization"
+                className="image"
+                width={1206}
+                height={2240}
+                loading="lazy"
+                decoding="async"
+              />
+            </a>
+          </div>
+          <figcaption className="fill-description">
+            The completed outdoor trial on a 40 × 12 ft course, alongside its
+            phone path map. Red marks sprayed passes, grey shows travel between
+            passes, and orange shows positions re-plotted after the phone
+            relocalized.
+          </figcaption>
+        </figure>
+        <details className="safespread-notes">
+          <summary>
+            <svg className="pixel-disclosure" viewBox="0 0 7 7" aria-hidden="true" focusable="false">
+              <path d="M1 0H2V1H3V2H4V3H5V4H4V5H3V6H2V7H1Z" />
+            </svg>
+            Early prototype &amp; testing
+          </summary>
+          <div className="safespread-testing">
+            <figure className="safespread-figure">
+              <video
+                className="image safespread-video"
+                controls
+                playsInline
+                muted
+                preload="none"
+                poster="/safespread/prototype-test.jpg"
+                width={540}
+                height={960}
+                aria-label="Early SafeSpread chassis and fluid-system test"
+                aria-describedby="safespread-video-caption"
+              >
+                <source src="/safespread/prototype-test.mp4" type="video/mp4" />
+                <a href="/safespread/prototype-test.mp4">Watch the prototype test.</a>
+              </video>
+              <figcaption id="safespread-video-caption" className="fill-description">
+                An early chassis test using a drill battery. Silent video.
+              </figcaption>
+            </figure>
+            <div>
+              <p className="intro">
+                Getting the fluid system onto a moving vehicle introduced a
+                new set of problems. The full tank compressed the suspension,
+                so we printed inserts to stiffen the springs and calibrated
+                speed and steering with the rover fully loaded.
+              </p>
+              <p className="intro">
+                The finished prototype weighed 14.91 lb with a full tank.
+                Bench tests and driving trials helped us match flow rate to
+                ground speed, while mission logs exposed the turning and
+                tracking errors we’re working through in the autonomous system.
+              </p>
+            </div>
+          </div>
+        </details>
+      </article>
       <article className="project">
-        <h2 className="header">Electric Go-Kart</h2>
+        <h2 id="electric-go-kart" className="header">Electric Go-Kart</h2>
         <a
           href="https://cad.onshape.com/documents/30826ce72678de87a3030163/w/d03a12ae59ca6e45fa57a4e4/e/749916287025791471a0d653?renderMode=0&uiState=68ec21d4b94f26ff8b2c91ce"
           target="_blank"
@@ -204,7 +346,7 @@ function ProjectsPage() {
         </div>
       </article>
       <article className="project">
-        <h2 className="header">Astrophotography</h2>
+        <h2 id="astrophotography" className="header">Astrophotography</h2>
         <div className="intro-block">
           <p className="intro">
             These are photos that I took as part of an Astrophotography workshop
@@ -218,7 +360,7 @@ function ProjectsPage() {
         <div className="fill">
           <img
             src="/dipper-trail.jpg"
-            className="image"
+            className="image landscape-image"
             alt="Composite star trail photo showing Ursa Major and stars rotating around Polaris"
             width={4000}
             height={2667}
@@ -237,7 +379,7 @@ function ProjectsPage() {
         <div className="fill">
           <img
             src="/moon.jpg"
-            className="image"
+            className="image landscape-image"
             alt="The Moon rising near Jupiter and the Pleiades, captured with a fisheye lens at 30 seconds"
             width={4000}
             height={2667}
@@ -252,7 +394,7 @@ function ProjectsPage() {
         <div className="fill">
           <img
             src="/moon-trail.jpg"
-            className="image"
+            className="image landscape-image"
             alt="Composite star trail photo showing the Moon rising over a few hours, with concentric trails warped by a fisheye lens"
             width={4000}
             height={2667}
@@ -276,7 +418,7 @@ function ProjectsPage() {
         <div className="fill">
           <img
             src="/long.jpg"
-            className="image"
+            className="image wide-image"
             alt="Single 30-minute exposure of the night sky with Polaris framed off-center near the top"
             width={4000}
             height={2250}
@@ -293,7 +435,7 @@ function ProjectsPage() {
         <div className="fill">
           <img
             src="/eddie-exposed.jpg"
-            className="image"
+            className="image portrait-image"
             alt="Light-painted self portrait with a flashlight-drawn outline of a dog in front of the Milky Way, 30-second exposure"
             width={3840}
             height={5760}
@@ -317,6 +459,8 @@ function ProjectsPage() {
 }
 
 type View = "home" | "projects";
+
+const projectIds = ["safespread", "electric-go-kart", "astrophotography"];
 
 function ProjectScrollbar() {
   const thumbRef = React.useRef<HTMLDivElement>(null);
@@ -386,11 +530,35 @@ function ProjectScrollbar() {
 }
 
 export function HomePage() {
-  const [view, setView] = React.useState<View>("home");
+  const location = useLocation();
+  const navigate = useNavigate();
+  const fragment = location.hash.slice(1).toLowerCase();
+  const projectId = projectIds.includes(fragment) ? fragment : null;
+  const view: View = projectId || fragment === "projects" ? "projects" : "home";
+
+  React.useLayoutEffect(() => {
+    let cancelled = false;
+
+    function scrollToView() {
+      if (cancelled) return;
+      if (projectId) {
+        document.getElementById(projectId)?.scrollIntoView({ block: "start" });
+      } else {
+        window.scrollTo(0, 0);
+      }
+    }
+
+    scrollToView();
+    // Font loading can change the height of projects above the target.
+    if (projectId) document.fonts.ready.then(scrollToView);
+
+    return () => {
+      cancelled = true;
+    };
+  }, [location.key, projectId]);
 
   function showView(nextView: View) {
-    setView(nextView);
-    window.scrollTo(0, 0);
+    navigate(nextView === "projects" ? "/#projects" : "/");
   }
 
   return (

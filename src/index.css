@@ -3,7 +3,7 @@
   font-family: "cofo-sans-pixel", sans-serif;
   font-size: 18px;
   font-weight: 400;
-  line-height: 1.65;
+  line-height: 30px;
   color: #1d1d1f;
   background: #ffffff;
   font-synthesis: none;
@@ -79,6 +79,13 @@ a {
   -webkit-tap-highlight-color: transparent;
 }
 
+button,
+summary,
+a {
+  -webkit-user-select: none;
+  user-select: none;
+}
+
 ::selection {
   color: #000000;
   background: var(--accent);
@@ -99,5 +106,6 @@ a {
 @media (max-width: 480px) {
   :root {
     font-size: 17px;
+    line-height: 28px;
   }
 }
