@@ -191,6 +191,51 @@ function ProjectsPage() {
                 width. That exceeded our 480-square-foot target and confirmed
                 that the bench flow measurements carried over to driving.
               </p>
+              <figure className="fill safespread-figure">
+                <a
+                  href="/safespread/electronics-diagram.png"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Open the electronics diagram at full size"
+                >
+                  <img
+                    src="/safespread/electronics-diagram.png"
+                    alt="SafeSpread wiring diagram showing the Arduino controller, steering servo and ESC, pump and valve relays, 12 V to 5 V converter, and separate 7.4 V and 12 V batteries"
+                    className="image safespread-diagram"
+                    width={7173}
+                    height={5135}
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </a>
+                <figcaption className="fill-description">
+                  The control electronics, with separate battery supplies for
+                  the drivetrain and fluid system. Relays switch the pump and
+                  shutoff valve; a 12 V to 5 V converter powers the controller.
+                </figcaption>
+              </figure>
+              <figure className="fill safespread-figure">
+                <a
+                  href="/safespread/electronics-inside.png"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Open the electronics enclosure photo at full size"
+                >
+                  <img
+                    src="/safespread/electronics-inside.png"
+                    alt="Open SafeSpread electronics enclosure showing the controller boards, relays, terminal block, wiring, and battery pack"
+                    className="image"
+                    width={1448}
+                    height={1086}
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </a>
+                <figcaption className="fill-description">
+                  The physical assembly inside the enclosure, with the control
+                  boards, relays, power connections, and battery pack.
+                </figcaption>
+              </figure>
             </section>
             <section className="safespread-process-step">
               <h3>Planning a route the rover could follow</h3>

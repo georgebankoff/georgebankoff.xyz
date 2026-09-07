@@ -299,6 +299,10 @@ html.projects-scroll::-webkit-scrollbar {
   background: #000000;
 }
 
+.safespread-diagram {
+  background: #ffffff;
+}
+
 @media (max-width: 580px) {
   .safespread-trial {
     grid-template-columns: 1fr;
