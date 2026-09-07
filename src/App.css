@@ -271,6 +271,26 @@ html.projects-scroll::-webkit-scrollbar {
   margin-top: 24px;
 }
 
+.safespread-process {
+  margin-top: 28px;
+}
+
+.safespread-process-step + .safespread-process-step {
+  margin-top: 32px;
+}
+
+.safespread-process-step h3 {
+  margin: 0 0 14px;
+  color: var(--heading);
+  font: inherit;
+  font-size: 22px;
+  line-height: 30px;
+}
+
+.safespread-process-step h3 + .intro {
+  margin-top: 0;
+}
+
 .safespread-testing .intro:first-child {
   margin-top: 0;
 }

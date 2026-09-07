@@ -44,10 +44,11 @@ function ProjectsPage() {
         </div>
         <div className="intro-block">
           <p className="intro">
-            SafeSpread is an autonomous rover designed for spreading de-icing solution on private driveways, patios, and sidewalks. I built it for my ENGS 21 project at Dartmouth alongside Mark Ghiu, Mithun Rameshkumar, and Khai
-            Lockwood. It uses the same technique already performed on public roads to keep ice
-            from bonding to the ground but enables people to use it on smaller, private surfaces. We originally wanted to make preventative treatment
-            easier for elderly homeowners and people with limited mobility, and it evolved into SafeSpread.
+            SafeSpread is an autonomous rover that applies liquid brine to
+            driveways, patios, and sidewalks before a freeze, helping keep ice
+            from bonding to the surface. It brings the preventative treatment
+            used on public roads to smaller, private spaces, without requiring
+            someone to walk the area and spread it by hand.
           </p>
         </div>
         <figure className="fill safespread-figure">
@@ -59,106 +60,220 @@ function ProjectsPage() {
             height={1090}
           />
           <figcaption className="fill-description">
-            The assembled prototype, with a 3D-printed phone mount and a custom
-            fluid system on an RC chassis.
+            An iPhone supplies position and heading; the RC chassis carries the
+            reservoir, control electronics, and rear spray bar.
           </figcaption>
         </figure>
         <div className="intro-block">
           <p className="intro">
-            The first version emptied its 1.5-liter tank in just 17 seconds.
-            Adding a needle valve brought the flow down to 5.33 mL/s, enough
-            for nearly five minutes of continuous spraying. A welded aluminum
-            bar lays down parallel lines, and a shutoff valve stops the fluid
-            from draining after the pump turns off.
+            To start a treatment, the operator fills the 1.5-liter reservoir,
+            places the rover at a corner, and enters the rectangular area’s
+            dimensions in our phone app. The rover plans a route of parallel
+            passes, connected by three-point turns in the space beyond each
+            end of the rectangle.
           </p>
           <p className="intro">
-            We then added autonomous navigation. An iPhone uses ARKit to
-            estimate position and heading from its camera and motion sensors,
-            sending them over Bluetooth to an ESP32-S3. Our React Native app
-            lets the operator set a rectangular treatment area; the rover
-            follows a planned route of back-and-forth passes and controls
-            steering, speed, and spraying along the way.
+            The mounted iPhone uses ARKit to estimate position and heading
+            from its camera and motion sensors. Our React Native app sends
+            those measurements over Bluetooth to an ESP32-S3, which controls
+            the drive motor, steering servo, pump, and shutoff valve. It
+            corrects steering to stay on the route and adjusts the throttle
+            to hold a steady ground speed as the tank gets lighter.
+          </p>
+          <p className="intro">
+            A 12 V pump sends brine through an adjustable needle valve to a
+            welded aluminum spray bar, which lays down evenly spaced lines.
+            At its calibrated flow of 5.33 mL/s, the tank provides nearly five
+            minutes of continuous spraying. The route tells the pump and
+            shutoff valve when to dispense, keeping the fluid inside the
+            treatment area and stopping it from draining during turns.
+          </p>
+          <p className="intro">
+            The rover stops if it loses the phone connection, receives stale
+            position data, or encounters a navigation fault. The current
+            prototype requires a clear, supervised area; it does not yet
+            detect obstacles.
           </p>
         </div>
-        <figure className="fill safespread-figure">
-          <div className="safespread-trial">
-            <div className="safespread-trial-photos">
-              <img
-                src="/safespread/outdoor-trial-complete.webp"
-                alt="Completed outdoor trial with parallel spray passes across the taped course and the rover parked at the end"
-                className="image"
-                width={1400}
-                height={926}
-                loading="lazy"
-                decoding="async"
-              />
-            </div>
-            <a
-              className="safespread-trial-map"
-              href="/safespread/outdoor-trial-path-map.png"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <img
-                src="/safespread/outdoor-trial-path-map.png"
-                alt="Phone mission map for the completed 40 × 12 ft outdoor trial: red spray passes, grey headland travel, and orange positions after relocalization"
-                className="image"
-                width={1206}
-                height={2240}
-                loading="lazy"
-                decoding="async"
-              />
-            </a>
-          </div>
-          <figcaption className="fill-description">
-            The completed outdoor trial on a 40 × 12 ft course, alongside its
-            phone path map. Red marks sprayed passes, grey shows travel between
-            passes, and orange shows positions re-plotted after the phone
-            relocalized.
-          </figcaption>
-        </figure>
         <details className="safespread-notes">
           <summary>
             <svg className="pixel-disclosure" viewBox="0 0 7 7" aria-hidden="true" focusable="false">
               <path d="M1 0H2V1H3V2H4V3H5V4H4V5H3V6H2V7H1Z" />
             </svg>
-            Early prototype &amp; testing
+            Design process &amp; testing
           </summary>
-          <div className="safespread-testing">
-            <figure className="safespread-figure">
-              <video
-                className="image safespread-video"
-                controls
-                playsInline
-                muted
-                preload="none"
-                poster="/safespread/prototype-test.jpg"
-                width={540}
-                height={960}
-                aria-label="Early SafeSpread chassis and fluid-system test"
-                aria-describedby="safespread-video-caption"
-              >
-                <source src="/safespread/prototype-test.mp4" type="video/mp4" />
-                <a href="/safespread/prototype-test.mp4">Watch the prototype test.</a>
-              </video>
-              <figcaption id="safespread-video-caption" className="fill-description">
-                An early chassis test using a drill battery. Silent video.
-              </figcaption>
-            </figure>
-            <div>
+          <div className="safespread-process">
+            <section className="safespread-process-step">
+              <h3>Starting with the fluid system</h3>
               <p className="intro">
-                Getting the fluid system onto a moving vehicle introduced a
-                new set of problems. The full tank compressed the suspension,
-                so we printed inserts to stiffen the springs and calibrated
-                speed and steering with the rover fully loaded.
+                I built SafeSpread with Mark Ghiu, Mithun Rameshkumar, and Khai
+                Lockwood for ENGS 21 at Dartmouth. We wanted to make preventative
+                ice treatment easier for elderly homeowners and people with
+                limited mobility. With eight weeks to build a prototype, we
+                bought an RC chassis so we could focus first on getting the
+                fluid system working.
               </p>
               <p className="intro">
-                The finished prototype weighed 14.91 lb with a full tank.
-                Bench tests and driving trials helped us match flow rate to
-                ground speed, while mission logs exposed the turning and
-                tracking errors we’re working through in the autonomous system.
+                We mounted a windshield-washer reservoir and pump on a
+                sheet-metal deck, then welded a perforated aluminum T-bar for
+                the outlet. Pavement tests helped us settle on parallel streams
+                with dry gaps between them. That gave us a repeatable spray
+                pattern, but the first build emptied its entire 1.5-liter tank
+                in just 17 seconds.
               </p>
-            </div>
+            </section>
+            <section className="safespread-process-step">
+              <h3>Making one tank last</h3>
+              <p className="intro">
+                Our first approach was to tape holes shut in the spray bar.
+                We timed the tank emptying with different numbers of outlets,
+                but closing holes barely changed the total flow. Adding a
+                check valve had a much larger effect. That shifted our attention
+                from the spray pattern to controlling flow through the line.
+              </p>
+              <p className="intro">
+                An adjustable needle valve gave us the control we needed.
+                We used an inline pressure gauge to narrow down the setting,
+                then measured the actual output: 160 mL in 30 seconds, or
+                5.33 mL/s. The same tank now lasted about 281 seconds instead
+                of 17. Fluid still dribbled out after the pump stopped, so we
+                added a shutoff valve just before the bar. Where undersized
+                tubing leaked at the fittings, wrapping the tube ends in tape
+                gave the connections a firmer fit.
+              </p>
+            </section>
+            <section className="safespread-process-step">
+              <h3>Getting the loaded rover to drive straight</h3>
+              <div className="safespread-testing">
+                <figure className="safespread-figure">
+                  <video
+                    className="image safespread-video"
+                    controls
+                    playsInline
+                    muted
+                    preload="none"
+                    poster="/safespread/prototype-test.jpg"
+                    width={540}
+                    height={960}
+                    aria-label="Early SafeSpread chassis and fluid-system test"
+                    aria-describedby="safespread-video-caption"
+                  >
+                    <source src="/safespread/prototype-test.mp4" type="video/mp4" />
+                    <a href="/safespread/prototype-test.mp4">Watch the prototype test.</a>
+                  </video>
+                  <figcaption id="safespread-video-caption" className="fill-description">
+                    An early chassis test using a drill battery. Silent video.
+                  </figcaption>
+                </figure>
+                <div>
+                  <p className="intro">
+                    The empty deck drove well, but adding a full tank made the
+                    suspension sag and the chassis sway. We measured the springs
+                    and printed inserts to stiffen them. Early driving tests
+                    used a salvaged drill battery while we assembled the control
+                    electronics and separate power supplies for the drivetrain
+                    and fluid system.
+                  </p>
+                  <p className="intro">
+                    We then timed the rover over 35 feet, adjusting speed and
+                    steering with the tank full. A persistent drift exposed
+                    reversed trim values, and the added weight slowed the rover
+                    enough that unloaded calibration was not useful. Repeated
+                    runs gave us a straight, repeatable baseline.
+                  </p>
+                </div>
+              </div>
+              <p className="intro">
+                With flow and speed measured, we could estimate how much area
+                one tank would treat. A calibrated full-tank run lasted
+                4 minutes 40 seconds and covered about 509 feet of path,
+                equivalent to roughly 764 square feet at an 18-inch spray
+                width. That exceeded our 480-square-foot target and confirmed
+                that the bench flow measurements carried over to driving.
+              </p>
+            </section>
+            <section className="safespread-process-step">
+              <h3>Planning a route the rover could follow</h3>
+              <p className="intro">
+                After the final presentation, we continued working on autonomy.
+                A mounted iPhone supplied position and heading through ARKit,
+                and our app sent those measurements to the ESP32-S3. An early
+                navigator repeatedly reconsidered its next maneuver based on
+                tracking error and oscillated between decisions. Planning the
+                complete route at Start, then using steering corrections to
+                follow it, made the behavior repeatable.
+              </p>
+              <p className="intro">
+                The chassis also turned differently to the left and right.
+                We measured each turning radius separately and mapped steering
+                commands to actual curvature instead of assuming the servo’s
+                midpoint meant straight ahead. Speed feedback compensated for
+                the tank getting lighter. Practice runs on a taped course in
+                a parking garage let us work through turns, position tracking,
+                and the conditions that should stop a mission.
+              </p>
+            </section>
+            <section className="safespread-process-step">
+              <h3>Testing the complete system</h3>
+              <p className="intro">
+                For the outdoor test, we taped out a 40 × 12 ft rectangle on
+                brick pavers and ran two autonomous missions. The first stopped
+                after five of seven passes when the firmware detected a route
+                fault during a turn. It stopped in place, as intended. After
+                restarting, the second run completed all seven passes and six
+                three-point turns in 6 minutes 17 seconds.
+              </p>
+              <p className="intro">
+                The logs let us compare the phone’s map with the spray tracks
+                on the ground. Average distance from the planned path was
+                0.45 ft, with the largest errors during turns. Midway through
+                the run, ARKit shifted its coordinate frame by about 0.8 ft;
+                those re-plotted positions appear in orange on the map below.
+                The rover completed the route despite that shift.
+              </p>
+              <figure className="fill safespread-figure">
+                <div className="safespread-trial">
+                  <div className="safespread-trial-photos">
+                    <img
+                      src="/safespread/outdoor-trial-complete.webp"
+                      alt="Completed outdoor trial with parallel spray passes across the taped course and the rover parked at the end"
+                      className="image"
+                      width={1400}
+                      height={926}
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </div>
+                  <a
+                    className="safespread-trial-map"
+                    href="/safespread/outdoor-trial-path-map.png"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <img
+                      src="/safespread/outdoor-trial-path-map.png"
+                      alt="Phone mission map for the completed 40 × 12 ft outdoor trial: red spray passes, grey headland travel, and orange positions after relocalization"
+                      className="image"
+                      width={1206}
+                      height={2240}
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </a>
+                </div>
+                <figcaption className="fill-description">
+                  The completed outdoor trial on a 40 × 12 ft course, alongside its
+                  phone path map. Red marks sprayed passes, grey shows travel between
+                  passes, and orange shows positions re-plotted after the phone
+                  relocalized.
+                </figcaption>
+              </figure>
+              <p className="intro">
+                These runs demonstrated autonomous coverage. Winter performance,
+                cold-weather durability, and obstacle detection remain to be
+                tested or developed.
+              </p>
+            </section>
           </div>
         </details>
       </article>
