@@ -224,8 +224,8 @@ function ProjectsPage({ openDesign }: { openDesign: boolean }) {
                   </a>
                 </div>
                 <figcaption className="fill-description">
-                  The four cylinders on the print bed, followed by two views
-                  of the inserts fitted inside the shocks.
+                  The cylinders on the print bed, followed by a view
+                  of the inserts fitted inside the shocks and then taped.
                 </figcaption>
               </figure>
               <p className="intro">
@@ -313,6 +313,26 @@ function ProjectsPage({ openDesign }: { openDesign: boolean }) {
                 restarting, the second run completed all seven passes and six
                 three-point turns in 6 minutes 17 seconds.
               </p>
+              <figure className="fill safespread-figure">
+                <video
+                  className="image safespread-video"
+                  controls
+                  playsInline
+                  muted
+                  preload="none"
+                  poster="/safespread/final-trial-timelapse.jpg"
+                  width={1280}
+                  height={720}
+                  aria-label="SafeSpread final outdoor trial timelapse"
+                  aria-describedby="safespread-timelapse-caption"
+                >
+                  <source src="/safespread/final-trial-timelapse.mp4" type="video/mp4" />
+                  <a href="/safespread/final-trial-timelapse.mp4">Watch the final trial timelapse.</a>
+                </video>
+                <figcaption id="safespread-timelapse-caption" className="fill-description">
+                  Timelapse of the completed outdoor trial on the 40 × 12 ft course.
+                </figcaption>
+              </figure>
               <p className="intro">
                 The logs let us compare the phone’s map with the spray tracks
                 on the ground. Average distance from the planned path was
@@ -359,9 +379,7 @@ function ProjectsPage({ openDesign }: { openDesign: boolean }) {
                 </figcaption>
               </figure>
               <p className="intro">
-                These runs demonstrated autonomous coverage. Winter performance,
-                cold-weather durability, and obstacle detection remain to be
-                tested or developed.
+                These runs demonstrated autonomous coverage. The remaining bottlenecks are the unreliable RC car hardware and the temporary iPhone sensors. If we were to turn this into a product, we would use dedicated sensors and build a more stable chassis from scratch. 
               </p>
             </section>
           </div>
