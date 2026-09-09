@@ -26,7 +26,7 @@ function ProjectsPage({ openDesign }: { openDesign: boolean }) {
         <h2 id="safespread" className="header">SafeSpread</h2>
         <div className="safespread-links">
           <a
-            href="https://github.com/mith-r/safespread"
+            href="https://github.com/georgebankoff/safespread"
             target="_blank"
             rel="noopener noreferrer"
           >
