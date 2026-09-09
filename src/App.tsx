@@ -19,7 +19,7 @@ import StarryNight from "./StarryNight";
 //   );
 // }
 
-function ProjectsPage({ openDesign }: { openDesign: boolean }) {
+function ProjectsPage() {
   return (
     <section className="projects-page" aria-label="Projects">
       <article className="project safespread-project">
@@ -95,7 +95,7 @@ function ProjectsPage({ openDesign }: { openDesign: boolean }) {
             detect obstacles.
           </p>
         </div>
-        <details className="safespread-notes" open={openDesign}>
+        <details className="safespread-notes" open>
           <summary>
             <svg className="pixel-disclosure" viewBox="0 0 7 7" aria-hidden="true" focusable="false">
               <path d="M1 0H2V1H3V2H4V3H5V4H4V5H3V6H2V7H1Z" />
@@ -841,7 +841,7 @@ export function HomePage() {
               </div>
             </section>
           )
-          : <ProjectsPage openDesign={projectId === "safespread"} />}
+          : <ProjectsPage />}
       </main>
     </div>
   );
