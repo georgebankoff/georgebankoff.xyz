@@ -812,7 +812,7 @@ export function HomePage() {
               />
               <div className="bio-content">
                 <p>
-                  I am studying engineering at Dartmouth and physics
+                  I am pursuing a BE at Dartmouth College and a BA in physics
                   at Skidmore College. I have otherwise lived in Washington, DC
                   my whole life. I am driven by trying to understand things and
                   solving problems.<br></br>
