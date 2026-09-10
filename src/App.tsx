@@ -189,7 +189,7 @@ function ProjectsPage() {
               </div>
               <figure className="fill safespread-figure safespread-suspension">
                 <div className="safespread-suspension-photos">
-                  <a href="/safespread/shock-inserts-printing.jpeg" target="_blank" rel="noopener noreferrer">
+                  <div>
                     <img
                       src="/safespread/shock-inserts-printing.jpeg"
                       alt="Four red cylindrical shock inserts on the bed of a Prusa 3D printer"
@@ -199,8 +199,8 @@ function ProjectsPage() {
                       loading="lazy"
                       decoding="async"
                     />
-                  </a>
-                  <a href="/safespread/shock-insert-installed-1.jpeg" target="_blank" rel="noopener noreferrer">
+                  </div>
+                  <div>
                     <img
                       src="/safespread/shock-insert-installed-1.jpeg"
                       alt="Close-up of a red printed cylinder installed inside an RC shock spring to block compression"
@@ -210,8 +210,8 @@ function ProjectsPage() {
                       loading="lazy"
                       decoding="async"
                     />
-                  </a>
-                  <a href="/safespread/shock-insert-installed-2.jpeg" target="_blank" rel="noopener noreferrer">
+                  </div>
+                  <div>
                     <img
                       src="/safespread/shock-insert-installed-2.jpeg"
                       alt="Another view of a red printed insert filling the gap inside the shock assembly"
@@ -221,7 +221,7 @@ function ProjectsPage() {
                       loading="lazy"
                       decoding="async"
                     />
-                  </a>
+                  </div>
                 </div>
                 <figcaption className="fill-description">
                   The cylinders on the print bed, followed by a view
@@ -237,12 +237,7 @@ function ProjectsPage() {
                 that the bench flow measurements carried over to driving.
               </p>
               <figure className="fill safespread-figure">
-                <a
-                  href="/safespread/electronics-diagram.png"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Open the electronics diagram at full size"
-                >
+                <div>
                   <img
                     src="/safespread/electronics-diagram.png"
                     alt="SafeSpread wiring diagram showing the Arduino controller, steering servo and ESC, pump and valve relays, 12 V to 5 V converter, and separate 7.4 V and 12 V batteries"
@@ -252,7 +247,7 @@ function ProjectsPage() {
                     loading="lazy"
                     decoding="async"
                   />
-                </a>
+                </div>
                 <figcaption className="fill-description">
                   The control electronics, with separate battery supplies for
                   the drivetrain and fluid system. Relays switch the pump and
@@ -260,12 +255,7 @@ function ProjectsPage() {
                 </figcaption>
               </figure>
               <figure className="fill safespread-figure">
-                <a
-                  href="/safespread/electronics-inside.png"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Open the electronics enclosure photo at full size"
-                >
+                <div>
                   <img
                     src="/safespread/electronics-inside.png"
                     alt="Open SafeSpread electronics enclosure showing the controller boards, relays, terminal block, wiring, and battery pack"
@@ -275,7 +265,7 @@ function ProjectsPage() {
                     loading="lazy"
                     decoding="async"
                   />
-                </a>
+                </div>
                 <figcaption className="fill-description">
                   The physical assembly inside the enclosure, with the control
                   boards, relays, power connections, and battery pack.
@@ -330,7 +320,7 @@ function ProjectsPage() {
                   <a href="/safespread/final-trial-timelapse.mp4">Watch the final trial timelapse.</a>
                 </video>
                 <figcaption id="safespread-timelapse-caption" className="fill-description">
-                  Timelapse of the completed outdoor trial on the 40 × 12 ft course.
+                  10x timelapse of the completed outdoor trial on the 40 × 12 ft course.
                 </figcaption>
               </figure>
               <p className="intro">
@@ -354,12 +344,7 @@ function ProjectsPage() {
                       decoding="async"
                     />
                   </div>
-                  <a
-                    className="safespread-trial-map"
-                    href="/safespread/outdoor-trial-path-map.png"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
+                  <div className="safespread-trial-map">
                     <img
                       src="/safespread/outdoor-trial-path-map.png"
                       alt="Phone mission map for the completed 40 × 12 ft outdoor trial: red spray passes, grey headland travel, and orange positions after relocalization"
@@ -369,7 +354,7 @@ function ProjectsPage() {
                       loading="lazy"
                       decoding="async"
                     />
-                  </a>
+                  </div>
                 </div>
                 <figcaption className="fill-description">
                   The completed outdoor trial on a 40 × 12 ft course, alongside its

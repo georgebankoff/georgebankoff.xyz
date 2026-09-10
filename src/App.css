@@ -311,7 +311,7 @@ html.projects-scroll::-webkit-scrollbar {
     grid-template-columns: 1fr;
   }
 
-  .safespread-suspension-photos a {
+  .safespread-suspension-photos > div {
     width: min(100%, 300px);
     justify-self: center;
   }
