@@ -386,7 +386,7 @@ function ProjectsPage() {
         </details>
       </article>
       <article className="project">
-        <h2 id="electric-go-kart" className="header">Electric Go-Kart</h2>
+        <h2 id="kart" className="header">Electric Go-Kart</h2>
         <a
           href="https://cad.onshape.com/documents/30826ce72678de87a3030163/w/d03a12ae59ca6e45fa57a4e4/e/749916287025791471a0d653?renderMode=0&uiState=68ec21d4b94f26ff8b2c91ce"
           target="_blank"
@@ -682,7 +682,7 @@ function ProjectsPage() {
 
 type View = "home" | "projects";
 
-const projectIds = ["safespread", "electric-go-kart", "astrophotography"];
+const projectIds = ["safespread", "kart", "astrophotography"];
 
 function ProjectScrollbar() {
   const thumbRef = React.useRef<HTMLDivElement>(null);
